@@ -1,0 +1,52 @@
+•	Inicio
+•	Definir Precio_de_producto
+•	Definir Descuento
+•	Definir Precio_Final
+•	Mostrar “Ingrese precio de producto”
+•	Pedir Precio_de_producto
+•	Si (Precio_de_producto < 100 ) entonces:
+o	Descuento =  precio_de_producto * 0.02
+•	Sino 
+o	Descuento = precio_de_producto * 0.10
+•	Finsi
+•	Precio_Final = Precio_de_Producto – Descuento
+•	Mostrar “Precio Final”
+•	Mostrar  Precio_Final
+•	Fin
+
+•	Inicio
+•	Definir Tiempo_en_segundos
+•	Definir Mensaje_final
+•	Definir Segundos_Faltantes
+•	Mostrar “Ingrese tiempo en segundos”
+•	Pedir Tiempo_en_segundos
+•	Si (Tiempo_en_segundos >= 600)
+o	Mensaje_final = “Mayor “
+•	Sino 
+o	Segundos_Faltantes =  600 – tiempo_en_segundos
+o	Mensaje_final = “Le faltan ” + Segundos_Faltantes + “Segundos”
+•	FinSi
+•	Mostrar “Mensaje_final”
+•	Fin
+
+
+
+
+
+
+
+
+•	Inicio
+•	Definir Numero_del_usuario
+•	Definir Suma = 0
+•	Definir Contador = 0
+•	Definir ContadorAuxiliar
+•	Mostrar “Ingrese un numero”
+•	Pedir Numero_del_usuario
+•	Mientras que (Suma <= Numero_del_usuario) repetir
+o	Suma = Suma + Contador
+o	ContadorAuxiliar = Contador
+o	Contador = Contador + 1  
+•	FinMientras
+•	Mostrar  “ la suma de los números hasta el numero ingresado desde 1 es : ContadorAuxiliar 
+•	Fin
