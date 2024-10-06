@@ -1,4 +1,7 @@
 
+import menu
+import actions
+
 def show_menu_option():
     print('¡Bienvenido al Sistema de Control de Estudiantes!')    
     print('1. Ingresar información de un estudiante')
@@ -8,12 +11,13 @@ def show_menu_option():
     print('5. Exportar los datos a un archivo CSV')
     print('6. Importar los datos de un archivo CSV')
 
-    try:
-        option_choose_by_user = int(input('Ingrese el numero de la acción que desea realizar: '))
-    except ValueError:
-        print('No ha ingresado el valor correcto')
+    option_choose_by_user =  menu.validate_user_entry_option() 
 
-    print(f'option choose by user is: {option_choose_by_user}')   
+    print(f'option choose by user is: {option_choose_by_user}')
+
+    if option_choose_by_user == 1:
+        actions.add_values_of_student()
+
 
 def main():
     show_menu_option()
