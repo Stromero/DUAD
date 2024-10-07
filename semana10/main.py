@@ -17,10 +17,18 @@ def show_menu_option():
 
     if option_choose_by_user == 1:
         actions.add_values_of_student()
+    if option_choose_by_user == 2:
+        actions.show_student_details()
 
 
 def main():
-    show_menu_option()
+        while True:
+             
+            show_menu_option()
+
+            finish_section = input('Desea finalizar?')
+            if finish_section == 'Si':
+                 break    
 
 if __name__ == '__main__':
     main()
