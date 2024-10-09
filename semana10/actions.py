@@ -1,5 +1,8 @@
 #Aca va estar la logica relaciona a las acciones del menu, excepto las de exportar e importa
 
+import json
+from os import path
+
 student_list = []
 
 def validate_string_entry(parameter1):
@@ -38,10 +41,30 @@ def validate_int_entry(parameter1):
     return int_entry_user
 
 def show_student_details():
+    filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
+    #listObj = []
+    #student_list = []
 
+
+    #check if file exists
+    if path.isfile(filename) is False:
+        raise Exception('File not found')
+    
+    #Read JSON File
+    with open(filename) as fp:
+        student_list = json.load(fp)
+
+    #Verify JSON File
     print(student_list)
 
 def add_values_of_student():
+
+    
+
+    filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
+    
+    with open(filename) as fp:
+        student_list = json.load(fp)
 
     while True:
 
@@ -53,18 +76,25 @@ def add_values_of_student():
         print(f'The spanish note is: {spanish_note}')
         social_studies_note = validate_int_entry('Ingrese la nota de Estudios Sociales: ')
         print(f'The social studies note is: {social_studies_note}')
-        sciences_note = validate_int_entry(input('Ingrese la nota de Ciencias: '))
+        sciences_note = validate_int_entry('Ingrese la nota de Ciencias: ')
         print(f'the sciences note is: {sciences_note}')
 
-        student_list_dictionary = {}
 
-        student_list_dictionary['Name'] = name
-        student_list_dictionary['Group'] = group_of_secondary
-        student_list_dictionary['Spanish note'] = spanish_note
-        student_list_dictionary['Social Studies note'] = social_studies_note
-        student_list_dictionary['Sciences Note'] = sciences_note
+        student_list.append({
+            'nombre': name,
+            'Seccion': group_of_secondary,
+            'Nota Espanol': spanish_note,
+            'Nota estudios sociales': social_studies_note,
+            'Nota de ciencias': sciences_note
+        })
 
-        add_another_student = input('Desea agregar otro estudiante?')
+
+        with open(filename,'w') as json_file:
+            json.dump(student_list,json_file,
+                      indent=4,
+                      separators=(',',':'))
+
+        add_another_student = input('Desea agregar otro estudiante? :')
 
         if add_another_student == 'no':
             break

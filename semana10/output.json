@@ -1,0 +1,37 @@
+[
+    {
+        "nombre":"Steven Romero Morera",
+        "Seccion":"12A",
+        "Nota Espanol":78,
+        "Nota estudios sociales":89,
+        "Nota de ciencias":74
+    },
+    {
+        "nombre":"Michelle Barrantes Berrocal",
+        "Seccion":"11C",
+        "Nota Espanol":71,
+        "Nota estudios sociales":89,
+        "Nota de ciencias":78
+    },
+    {
+        "nombre":"Maria Fernanda Cede\u00f1o",
+        "Seccion":"10",
+        "Nota Espanol":78,
+        "Nota estudios sociales":80,
+        "Nota de ciencias":90
+    },
+    {
+        "nombre":"Eiylin Ruiz Alfaro",
+        "Seccion":"10A",
+        "Nota Espanol":65,
+        "Nota estudios sociales":89,
+        "Nota de ciencias":78
+    },
+    {
+        "nombre":"Jose Antonio Bola\u00f1os",
+        "Seccion":"83",
+        "Nota Espanol":75,
+        "Nota estudios sociales":79,
+        "Nota de ciencias":80
+    }
+]
