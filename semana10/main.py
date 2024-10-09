@@ -26,8 +26,8 @@ def main():
              
             show_menu_option()
 
-            finish_section = input('Desea finalizar?')
-            if finish_section == 'Si':
+            finish_section = input('Desea finalizar?: ')
+            if finish_section == 'Si' or finish_section == 'si':
                  break    
 
 if __name__ == '__main__':
