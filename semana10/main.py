@@ -19,7 +19,9 @@ def show_menu_option():
         actions.add_values_of_student()
     if option_choose_by_user == 2:
         actions.show_student_details()
-
+    if option_choose_by_user == 3:
+         actions.sort_JSON()
+    
 
 def main():
         while True:
