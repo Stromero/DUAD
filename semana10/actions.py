@@ -57,9 +57,14 @@ def show_student_details():
     #Verify JSON File
     print(student_list)
 
-def add_values_of_student():
+def calculate_average_of_student(note1,note2,note3,note4):
 
-    
+    total_of_notes = note1 + note2 + note3 + note4
+    average_of_student =  total_of_notes / 4
+
+    return average_of_student    
+
+def add_values_of_student():
 
     filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
     
@@ -74,18 +79,23 @@ def add_values_of_student():
         print(f'The group of secondary is: {group_of_secondary}')
         spanish_note = validate_int_entry('Ingrese la nota de Español: ')
         print(f'The spanish note is: {spanish_note}')
+        english_note = validate_int_entry('Ingrese la nota de Ingles: ')
+        print(f'The english note is: {english_note}')
         social_studies_note = validate_int_entry('Ingrese la nota de Estudios Sociales: ')
         print(f'The social studies note is: {social_studies_note}')
         sciences_note = validate_int_entry('Ingrese la nota de Ciencias: ')
         print(f'the sciences note is: {sciences_note}')
 
+        student_average = calculate_average_of_student(spanish_note,english_note,social_studies_note,sciences_note)
 
         student_list.append({
             'nombre': name,
             'Seccion': group_of_secondary,
             'Nota Espanol': spanish_note,
+            'Nota Ingles': english_note,
             'Nota estudios sociales': social_studies_note,
-            'Nota de ciencias': sciences_note
+            'Nota de ciencias': sciences_note,
+            'Promedio': student_average
         })
 
 
@@ -99,4 +109,19 @@ def add_values_of_student():
         if add_another_student == 'no':
             break
 
+def sort_JSON():
+    filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
+    
+    with open(filename) as fp:
+        student_list = json.load(fp)
+        
+    #json.dumps(student_list,indent=4,sort_keys='Promedio')    
+    
+    gradeOrder = sorted(student_list,key=lambda k:k['Promedio'],
+                        reverse=True)
+    gradeOrder = gradeOrder[:3]
+    
+    print(gradeOrder)
 
+
+    
