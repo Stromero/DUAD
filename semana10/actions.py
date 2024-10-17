@@ -2,6 +2,7 @@
 
 import json
 from os import path
+import csv
 
 student_list = []
 
@@ -124,4 +125,41 @@ def sort_JSON():
     print(gradeOrder)
 
 
-    
+def show_average_of_students_notes():
+
+    filename = "C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json"
+
+    with open(filename) as fp:
+        student_list = json.load(fp)
+
+    average_of_students = [(item['nombre'], item['Promedio']) for item in student_list]    
+
+    print(average_of_students)
+
+
+
+student_list_headers = (
+           'nombre',
+            'Seccion',
+            'Nota Espanol',
+            'Nota Ingles',
+            'Nota estudios sociales',
+            'Nota de ciencias',
+            'Promedio',
+)
+
+def write_csv_file(file_path, data,headear):
+
+
+    with open(file_path,'w',encoding='utf-8') as file:
+        writer = csv.DictWriter(file,headear)
+        writer.writeheader()
+        writer.writerows(data)
+
+def export_file_data_to_csv():
+        filename = "C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json"
+
+        with open(filename) as fp:
+            student_list = json.load(fp)
+
+        write_csv_file('student_data.csv',student_list,student_list_headers)        
