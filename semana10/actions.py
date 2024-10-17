@@ -4,6 +4,8 @@ import json
 from os import path
 import csv
 
+
+filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
 student_list = []
 
 def validate_string_entry(parameter1):
@@ -42,11 +44,7 @@ def validate_int_entry(parameter1):
     return int_entry_user
 
 def show_student_details():
-    filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
-    #listObj = []
-    #student_list = []
-
-
+    
     #check if file exists
     if path.isfile(filename) is False:
         raise Exception('File not found')
@@ -67,25 +65,23 @@ def calculate_average_of_student(note1,note2,note3,note4):
 
 def add_values_of_student():
 
-    filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
-    
     with open(filename) as fp:
         student_list = json.load(fp)
 
     while True:
 
         name = validate_string_entry('Ingrese el Nombre Completo: ')
-        print(f'Name of the student is: {name}')
+        #print(f'Name of the student is: {name}')
         group_of_secondary = input('Ingrese la Sección: ')
-        print(f'The group of secondary is: {group_of_secondary}')
+        #print(f'The group of secondary is: {group_of_secondary}')
         spanish_note = validate_int_entry('Ingrese la nota de Español: ')
-        print(f'The spanish note is: {spanish_note}')
+        #print(f'The spanish note is: {spanish_note}')
         english_note = validate_int_entry('Ingrese la nota de Ingles: ')
-        print(f'The english note is: {english_note}')
+        #print(f'The english note is: {english_note}')
         social_studies_note = validate_int_entry('Ingrese la nota de Estudios Sociales: ')
-        print(f'The social studies note is: {social_studies_note}')
+        #print(f'The social studies note is: {social_studies_note}')
         sciences_note = validate_int_entry('Ingrese la nota de Ciencias: ')
-        print(f'the sciences note is: {sciences_note}')
+        #print(f'the sciences note is: {sciences_note}')
 
         student_average = calculate_average_of_student(spanish_note,english_note,social_studies_note,sciences_note)
 
@@ -111,12 +107,9 @@ def add_values_of_student():
             break
 
 def sort_JSON():
-    filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
     
     with open(filename) as fp:
         student_list = json.load(fp)
-        
-    #json.dumps(student_list,indent=4,sort_keys='Promedio')    
     
     gradeOrder = sorted(student_list,key=lambda k:k['Promedio'],
                         reverse=True)
@@ -125,9 +118,7 @@ def sort_JSON():
     print(gradeOrder)
 
 
-def show_average_of_students_notes():
-
-    filename = "C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json"
+def show_average_of_students_notes():    
 
     with open(filename) as fp:
         student_list = json.load(fp)
@@ -157,9 +148,38 @@ def write_csv_file(file_path, data,headear):
         writer.writerows(data)
 
 def export_file_data_to_csv():
-        filename = "C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json"
-
+        
         with open(filename) as fp:
             student_list = json.load(fp)
 
-        write_csv_file('student_data.csv',student_list,student_list_headers)        
+        write_csv_file('student_data.csv',student_list,student_list_headers)
+
+# def import_file_data_from_csv():
+
+#     with open(filename,'r') as f:
+#         lines = f.readlines()
+
+#     print(lines)   
+
+def csv_to_JSON(csvfilepath,JSONFilePath):
+    
+    jsonArray = []
+
+    #read csv file
+    with open(csvfilepath, encoding='UTF-8') as csvf:
+        #load csv file data using csv library's dictionary reader
+        csvReader = csv.DictReader(csvf)
+
+        #convert each csv row into python dict
+        for row in csvReader:
+            #add this python dict to json array
+            jsonArray.append(row)
+        
+        #convert python jsonArray to JSON string and write to file
+        with open(JSONFilePath,'w',encoding='utf-8') as jsonf:
+            jsonString = json.dumps(jsonArray,indent='4')
+            jsonf.write(jsonString)
+
+    print(jsonArray)
+
+

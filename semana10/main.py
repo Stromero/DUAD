@@ -25,6 +25,10 @@ def show_menu_option():
          actions.show_average_of_students_notes()
     if option_choose_by_user == 5:
          actions.export_file_data_to_csv()
+    if option_choose_by_user == 6:
+            csvfilepath = "C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\student_data.csv"
+            JSONFilePath = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
+            actions.csv_to_JSON(csvfilepath,JSONFilePath)
     
 
 def main():
