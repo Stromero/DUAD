@@ -1,47 +1,56 @@
 [
-    {
-        "nombre":"Steven Romero Morera",
-        "Seccion":"12B",
-        "Nota Espanol":78,
-        "Nota Ingles":89,
-        "Nota estudios sociales":78,
-        "Nota de ciencias":82,
-        "Promedio":81.75
-    },
-    {
-        "nombre":"Michelle Barrantes Jimenez",
-        "Seccion":"12A",
-        "Nota Espanol":71,
-        "Nota Ingles":76,
-        "Nota estudios sociales":80,
-        "Nota de ciencias":81,
-        "Promedio":77.0
-    },
-    {
-        "nombre":"Laura Priscilla Chaves Fernandez",
-        "Seccion":"9A",
-        "Nota Espanol":87,
-        "Nota Ingles":82,
-        "Nota estudios sociales":78,
-        "Nota de ciencias":75,
-        "Promedio":80.5
-    },
-    {
-        "nombre":"Enrique Julio Martinez Lopez",
-        "Seccion":"13B",
-        "Nota Espanol":71,
-        "Nota Ingles":72,
-        "Nota estudios sociales":78,
-        "Nota de ciencias":80,
-        "Promedio":75.25
-    },
-    {
-        "nombre":"Ana lucia Rodruguez Cede\u00f1o",
-        "Seccion":"15R",
-        "Nota Espanol":89,
-        "Nota Ingles":70,
-        "Nota estudios sociales":65,
-        "Nota de ciencias":73,
-        "Promedio":74.25
-    }
+4{
+44"nombre": "Steven Romero Morera",
+44"Seccion": "12B",
+44"Nota Espanol": "78",
+44"Nota Ingles": "89",
+44"Nota estudios sociales": "78",
+44"Nota de ciencias": "82",
+44"Promedio": "81.75"
+4},
+4{
+44"nombre": "Michelle Barrantes Jimenez",
+44"Seccion": "12A",
+44"Nota Espanol": "71",
+44"Nota Ingles": "76",
+44"Nota estudios sociales": "80",
+44"Nota de ciencias": "81",
+44"Promedio": "77.0"
+4},
+4{
+44"nombre": "Laura Priscilla Chaves Fernandez",
+44"Seccion": "9A",
+44"Nota Espanol": "87",
+44"Nota Ingles": "82",
+44"Nota estudios sociales": "78",
+44"Nota de ciencias": "75",
+44"Promedio": "80.5"
+4},
+4{
+44"nombre": "Enrique Julio Martinez Lopez",
+44"Seccion": "13B",
+44"Nota Espanol": "71",
+44"Nota Ingles": "72",
+44"Nota estudios sociales": "78",
+44"Nota de ciencias": "80",
+44"Promedio": "75.25"
+4},
+4{
+44"nombre": "Ana lucia Rodruguez Cede\u00f1o",
+44"Seccion": "15R",
+44"Nota Espanol": "89",
+44"Nota Ingles": "70",
+44"Nota estudios sociales": "65",
+44"Nota de ciencias": "73",
+44"Promedio": "74.25"
+4},
+4{
+44"nombre": "Alejandra Umana Delgado",
+44"Seccion": "07B",
+44"Nota Espanol": "71",
+44"Nota Ingles": "72",
+44"Nota estudios sociales": "76",
+44"Nota de ciencias": "80",
+44"Promedio": "74.75"
+4}
 ]
