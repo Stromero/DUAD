@@ -21,6 +21,8 @@ def show_menu_option():
         actions.show_student_details()
     if option_choose_by_user == 3:
          actions.sort_JSON()
+    if option_choose_by_user == 4:
+         actions.show_average_of_students_notes()
     
 
 def main():

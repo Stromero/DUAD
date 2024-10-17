@@ -124,4 +124,13 @@ def sort_JSON():
     print(gradeOrder)
 
 
-    
+def show_average_of_students_notes():
+
+    filename = "C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json"
+
+    with open(filename) as fp:
+        student_list = json.load(fp)
+
+    average_of_students = [(item['nombre'], item['Promedio']) for item in student_list]    
+
+    print(average_of_students)
