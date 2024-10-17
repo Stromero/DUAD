@@ -23,6 +23,8 @@ def show_menu_option():
          actions.sort_JSON()
     if option_choose_by_user == 4:
          actions.show_average_of_students_notes()
+    if option_choose_by_user == 5:
+         actions.export_file_data_to_csv()
     
 
 def main():
