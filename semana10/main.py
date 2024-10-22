@@ -1,6 +1,13 @@
 
 import menu
 import actions
+import data
+
+# csvfilepath = "C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\student_data.csv"
+# filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
+csvfilepath = "C:\\Temp\\student_data.csv"
+filename = "C:\\Temp\\output.json"
+
 
 def show_menu_option():
     print('¡Bienvenido al Sistema de Control de Estudiantes!')    
@@ -13,24 +20,19 @@ def show_menu_option():
 
     option_choose_by_user =  menu.validate_user_entry_option() 
 
-    print(f'option choose by user is: {option_choose_by_user}')
-
     if option_choose_by_user == 1:
-        actions.add_values_of_student()
+        actions.add_values_of_student(filename)
     if option_choose_by_user == 2:
-        actions.show_student_details()
+        actions.show_student_details(filename)
     if option_choose_by_user == 3:
-         actions.sort_JSON()
+         actions.sort_JSON(filename)
     if option_choose_by_user == 4:
-         actions.show_average_of_students_notes()
+         actions.show_average_of_students_notes(filename)
     if option_choose_by_user == 5:
-         actions.export_file_data_to_csv()
+         data.export_file_data_to_csv(csvfilepath,filename)
     if option_choose_by_user == 6:
-            csvfilepath = "C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\student_data.csv"
-            JSONFilePath = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
-            actions.csv_to_JSON(csvfilepath,JSONFilePath)
+        data.csv_to_JSON(csvfilepath,filename)
     
-
 def main():
         while True:
              

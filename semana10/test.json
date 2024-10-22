@@ -43,32 +43,5 @@
         "Nota estudios sociales":"81",
         "Nota de ciencias":"95",
         "Promedio":"86.0"
-    },
-    {
-        "nombre":"Jorge Hernandez Gaitan",
-        "Seccion":"14A",
-        "Nota Espanol":"78",
-        "Nota Ingles":"81",
-        "Nota estudios sociales":"85",
-        "Nota de ciencias":"92",
-        "Promedio":"84.0"
-    },
-    {
-        "nombre":"Alejandra Umana Delgado",
-        "Seccion":"10B",
-        "Nota Espanol":"73",
-        "Nota Ingles":"74",
-        "Nota estudios sociales":"88",
-        "Nota de ciencias":"93",
-        "Promedio":"82.0"
-    },
-    {
-        "nombre":"Leonardo Santamaria Corrales",
-        "Seccion":"18A",
-        "Nota Espanol":78,
-        "Nota Ingles":89,
-        "Nota estudios sociales":85,
-        "Nota de ciencias":63,
-        "Promedio":78.75
     }
 ]

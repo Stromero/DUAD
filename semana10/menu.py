@@ -9,6 +9,7 @@ def validate_user_entry_option():
                 break
             except ValueError:
                 print('No ha ingresado el valor correcto, vuelva a intentarlo')
+                continue
         
         return parameter
     

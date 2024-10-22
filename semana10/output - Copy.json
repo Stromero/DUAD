@@ -1,0 +1,56 @@
+[
+    {
+        "nombre":"Steven Romero Morera",
+        "Seccion":"07A",
+        "Nota Espanol":89,
+        "Nota Ingles":90,
+        "Nota estudios sociales":81,
+        "Nota de ciencias":78,
+        "Promedio":84.5
+    },
+    {
+        "nombre":"Laura Priscilla Chaves Fernandez ",
+        "Seccion":"12B",
+        "Nota Espanol":78,
+        "Nota Ingles":79,
+        "Nota estudios sociales":90,
+        "Nota de ciencias":70,
+        "Promedio":79.25
+    },
+    {
+        "nombre":"Jose Antonio Bolanos Sandoval",
+        "Seccion":"15A",
+        "Nota Espanol":89,
+        "Nota Ingles":81,
+        "Nota estudios sociales":78,
+        "Nota de ciencias":75,
+        "Promedio":80.75
+    },
+    {
+        "nombre":"Marta Maria Traube Gonzalez",
+        "Seccion":"13A",
+        "Nota Espanol":79,
+        "Nota Ingles":86,
+        "Nota estudios sociales":84,
+        "Nota de ciencias":85,
+        "Promedio":83.5
+    },
+    {
+        "nombre":"Yerling Andrea Mendoza Chavarria",
+        "Seccion":"15A",
+        "Nota Espanol":79,
+        "Nota Ingles":89,
+        "Nota estudios sociales":81,
+        "Nota de ciencias":95,
+        "Promedio":86.0
+    },
+    {
+        "nombre":"Jorge Hernandez Gaitan",
+        "Seccion":"14A",
+        "Nota Espanol":78,
+        "Nota Ingles":81,
+        "Nota estudios sociales":85,
+        "Nota de ciencias":92,
+        "Promedio":84.0
+    }
+]

@@ -2,11 +2,7 @@
 
 import json
 from os import path
-import csv
-
-
-filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
-student_list = []
+from pathlib import Path
 
 def validate_string_entry(parameter1):
 
@@ -39,11 +35,62 @@ def validate_int_entry(parameter1):
             break
         except ValueError:
             print('No ha ingresado el valor correcto, vuelva a intentarlo')
-               
+            continue   
     
     return int_entry_user
 
-def show_student_details():
+def calculate_average_of_student(note1,note2,note3,note4):
+
+    total_of_notes = note1 + note2 + note3 + note4
+    average_of_student =  total_of_notes / 4
+
+    return average_of_student    
+
+def add_values_of_student(filename):
+        
+        student_list = []
+        path_file = Path(filename)
+
+        if path_file.exists():
+            print('Existe')
+            with open(filename) as fp:
+                student_list = json.load(fp)
+                
+        else:
+            print('No existe')
+
+        while True:
+        
+                name = validate_string_entry('Ingrese el Nombre Completo: ')                
+                group_of_secondary = input('Ingrese la Sección: ')                
+                spanish_note = validate_int_entry('Ingrese la nota de Español: ')                
+                english_note = validate_int_entry('Ingrese la nota de Ingles: ')                
+                social_studies_note = validate_int_entry('Ingrese la nota de Estudios Sociales: ')                
+                sciences_note = validate_int_entry('Ingrese la nota de Ciencias: ')
+                
+                student_average = calculate_average_of_student(spanish_note,english_note,social_studies_note,sciences_note)
+
+                student_list.append({
+                'nombre': name,
+                'Seccion': group_of_secondary,
+                'Nota Espanol': spanish_note,
+                'Nota Ingles': english_note,
+                'Nota estudios sociales': social_studies_note,
+                'Nota de ciencias': sciences_note,
+                'Promedio': student_average
+                })
+
+                with open(filename,'w') as json_file:
+                    json.dump(student_list,json_file,
+                        indent=4,
+                        separators=(',',':'))
+
+                add_another_student = input('Desea agregar otro estudiante? :')
+
+                if add_another_student == 'no':
+                    break
+
+def show_student_details(filename):
     
     #check if file exists
     if path.isfile(filename) is False:
@@ -54,59 +101,18 @@ def show_student_details():
         student_list = json.load(fp)
 
     #Verify JSON File
-    print(student_list)
+    #print(student_list)
 
-def calculate_average_of_student(note1,note2,note3,note4):
+    for item in student_list:
+        print('Nombre:' + item['nombre'],
+              'Seccion: ' + item['Seccion'],
+              'Nota Espanol: ' + str(item['Nota Espanol']),
+              'Nota Ingles: ' + str(item['Nota Ingles']),
+              'Nota Estudios Sociales: '+ str(item['Nota estudios sociales']),
+              'Nota Ciencias: ' + str(item['Nota de ciencias']),
+              )
 
-    total_of_notes = note1 + note2 + note3 + note4
-    average_of_student =  total_of_notes / 4
-
-    return average_of_student    
-
-def add_values_of_student():
-
-    with open(filename) as fp:
-        student_list = json.load(fp)
-
-    while True:
-
-        name = validate_string_entry('Ingrese el Nombre Completo: ')
-        #print(f'Name of the student is: {name}')
-        group_of_secondary = input('Ingrese la Sección: ')
-        #print(f'The group of secondary is: {group_of_secondary}')
-        spanish_note = validate_int_entry('Ingrese la nota de Español: ')
-        #print(f'The spanish note is: {spanish_note}')
-        english_note = validate_int_entry('Ingrese la nota de Ingles: ')
-        #print(f'The english note is: {english_note}')
-        social_studies_note = validate_int_entry('Ingrese la nota de Estudios Sociales: ')
-        #print(f'The social studies note is: {social_studies_note}')
-        sciences_note = validate_int_entry('Ingrese la nota de Ciencias: ')
-        #print(f'the sciences note is: {sciences_note}')
-
-        student_average = calculate_average_of_student(spanish_note,english_note,social_studies_note,sciences_note)
-
-        student_list.append({
-            'nombre': name,
-            'Seccion': group_of_secondary,
-            'Nota Espanol': spanish_note,
-            'Nota Ingles': english_note,
-            'Nota estudios sociales': social_studies_note,
-            'Nota de ciencias': sciences_note,
-            'Promedio': student_average
-        })
-
-
-        with open(filename,'w') as json_file:
-            json.dump(student_list,json_file,
-                      indent=4,
-                      separators=(',',':'))
-
-        add_another_student = input('Desea agregar otro estudiante? :')
-
-        if add_another_student == 'no':
-            break
-
-def sort_JSON():
+def sort_JSON(filename):
     
     with open(filename) as fp:
         student_list = json.load(fp)
@@ -115,10 +121,12 @@ def sort_JSON():
                         reverse=True)
     gradeOrder = gradeOrder[:3]
     
-    print(gradeOrder)
+    for item in gradeOrder:
+         print('Nombre:' + item['nombre'],
+               'Promedio' + str(item['Promedio'])
+              )
 
-
-def show_average_of_students_notes():    
+def show_average_of_students_notes(filename):    
 
     with open(filename) as fp:
         student_list = json.load(fp)
@@ -129,57 +137,20 @@ def show_average_of_students_notes():
 
 
 
-student_list_headers = (
-           'nombre',
-            'Seccion',
-            'Nota Espanol',
-            'Nota Ingles',
-            'Nota estudios sociales',
-            'Nota de ciencias',
-            'Promedio',
-)
-
-def write_csv_file(file_path, data,headear):
 
 
-    with open(file_path,'w',encoding='utf-8') as file:
-        writer = csv.DictWriter(file,headear)
-        writer.writeheader()
-        writer.writerows(data)
 
-def export_file_data_to_csv():
+  
+
         
-        with open(filename) as fp:
-            student_list = json.load(fp)
 
-        write_csv_file('student_data.csv',student_list,student_list_headers)
 
-# def import_file_data_from_csv():
 
-#     with open(filename,'r') as f:
-#         lines = f.readlines()
 
-#     print(lines)   
-
-def csv_to_JSON(csvfilepath,JSONFilePath):
-    
-    jsonArray = []
-
-    #read csv file
-    with open(csvfilepath, encoding='UTF-8') as csvf:
-        #load csv file data using csv library's dictionary reader
-        csvReader = csv.DictReader(csvf)
-
-        #convert each csv row into python dict
-        for row in csvReader:
-            #add this python dict to json array
-            jsonArray.append(row)
         
-        #convert python jsonArray to JSON string and write to file
-        with open(JSONFilePath,'w',encoding='utf-8') as jsonf:
-            jsonString = json.dumps(jsonArray,indent='4')
-            jsonf.write(jsonString)
+        
+        
 
-    print(jsonArray)
+   
 
 
