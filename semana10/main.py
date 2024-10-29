@@ -3,10 +3,10 @@ import menu
 import actions
 import data
 
-# csvfilepath = "C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\student_data.csv"
-# filename = 'C:\\Users\\steve\\OneDrive\\Documentos\\DUAD\\semana10\\output.json'
-csvfilepath = "C:\\Temp\\student_data.csv"
-filename = "C:\\Temp\\output.json"
+csvfilepath = './student_data.csv'
+filename = './output.json'
+#csvfilepath = "C:\\Temp\\student_data.csv"
+#filename = "C:\\Temp\\output.json"
 
 
 def show_menu_option():
