@@ -4,10 +4,6 @@ import actions
 import data
 
 csvfilepath = './student_data.csv'
-filename = './output.json'
-#csvfilepath = "C:\\Temp\\student_data.csv"
-#filename = "C:\\Temp\\output.json"
-
 
 def show_menu_option():
     print('¡Bienvenido al Sistema de Control de Estudiantes!')    
@@ -21,17 +17,17 @@ def show_menu_option():
     option_choose_by_user =  menu.validate_user_entry_option() 
 
     if option_choose_by_user == 1:
-        actions.add_values_of_student(filename)
+        actions.add_values_of_student()
     if option_choose_by_user == 2:
-        actions.show_student_details(filename)
+        actions.show_student_details()
     if option_choose_by_user == 3:
-         actions.sort_JSON(filename)
+         actions.sort_JSON()
     if option_choose_by_user == 4:
-         actions.show_average_of_students_notes(filename)
+         actions.show_average_of_students_notes()
     if option_choose_by_user == 5:
-         data.export_file_data_to_csv(csvfilepath,filename)
+         data.export_file_data_to_csv(csvfilepath)
     if option_choose_by_user == 6:
-        data.csv_to_JSON(csvfilepath,filename)
+        data.csv_to_JSON(csvfilepath)
     
 def main():
         while True:
