@@ -34,3 +34,6 @@ my_bool_2 = False
 #---------------------------------------------------------------------------------
 #print(my_bool_1+my_bool_2)
 #Lo curioso aca es que da como resultado un numero en mi caso el 1.
+
+for item in my_first_list:
+    print({f'El item actual es:' + str(item)})
