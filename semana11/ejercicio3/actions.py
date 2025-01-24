@@ -30,14 +30,55 @@ def get_student():
 
 def validate_string_entry(parameter1):
 
-    while True:
-        try:
-            string_entry_user = str(input(parameter1))
-            break
-        except ValueError:
-            print('No ha ingresado el valor correcto, vuelva a intentarlo')
     
-    return string_entry_user
+     while True:        
+
+            try:
+               user_entry = input(str(parameter1))
+
+               if len(user_entry) == 0:
+                   
+                   print('The value you have entered is empty')
+
+
+               elif len(user_entry) > 0:
+
+                    result = False
+
+                    for i in user_entry:
+                        try:
+                            int(i)
+                            result = True
+                            print('The value you have entered is contains a digit number')
+                            break
+                        except:
+                            result = False
+
+                    if result == False:
+                        break
+
+               else:
+                   
+                   print('The string is not empty')
+
+                   break
+               
+            except ValueError:
+                
+                print('The value enter is incorrect')
+                continue 
+
+            
+     return user_entry
+     
+    #while True:
+    #    try:
+    #        string_entry_user = str(input(parameter1))
+    #        break
+    #    except ValueError:
+    #        print('No ha ingresado el valor correcto, vuelva a intentarlo')
+    
+    #return string_entry_user
 
 def validate_note_is_from_0_to_100(entry_number):
 
@@ -51,6 +92,7 @@ def validate_note_is_from_0_to_100(entry_number):
 
 
 def validate_int_entry(parameter1):
+
 
     while True:
         try:
