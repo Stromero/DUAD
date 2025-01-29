@@ -127,10 +127,20 @@ def add_values_of_student():
 
                 students_list.append(Student(name,group_of_secondary,spanish_note,english_note,social_studies_note,science_note,student_average))
 
+                
+                
                 add_another_student = input('Desea agregar otro estudiante? :')
 
-                if add_another_student == 'no':
-                    break
+                if add_another_student == 'si' or add_another_student == 'Si':
+                        continue
+                elif add_another_student == 'No' or add_another_student == 'no':
+                        break
+                elif len(add_another_student) == 0:
+                        print('The value you have entered is empty')
+                        break
+                else:
+                     print('The value entered is incorrect, go to main menu')
+                     break
         
 
 def show_student_details():
