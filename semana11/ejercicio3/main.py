@@ -1,4 +1,3 @@
-
 import menu
 import actions
 import data
@@ -27,7 +26,7 @@ def show_menu_option():
     if option_choose_by_user == 5:
          data.export_file_data_to_csv(csvfilepath)
     if option_choose_by_user == 6:
-        data.csv_to_JSON(csvfilepath)
+        data.csv_to_Object(csvfilepath)
     
 def main():
         while True:
