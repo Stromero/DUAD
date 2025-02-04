@@ -9,44 +9,60 @@ from abc import ABC, abstractmethod
 
 class Shape(ABC):
 
+    
+
     @abstractmethod
-    def calculate_perimeter():
+    def calculate_perimeter(self):
         pass
     
     @abstractmethod
-    def calculate_area():
+    def calculate_area(self):
         pass
 
 class Circle(Shape):
 
-    def calculate_perimeter(self, radius_parameter):
-        perimeter = 2 * 3.14 * radius_parameter
+    def __init__(self, radius_parameter):
+        #super().__init__()
+        self.radius = radius_parameter
+
+
+    def calculate_perimeter(self):
+        perimeter = 2 * math.pi * self.radius
         print(f'The perimeter of circle is: {perimeter}')
     
-    def calculate_area(self, radius_parameter):
-        area = 3.14 * pow(radius_parameter,2)
+    def calculate_area(self):
+        area = math.pi * pow(self.radius,2)
         print(f'The area of the circle is: {area}')
 
     
 class Square(Shape):
 
-    def calculate_perimeter(self, side_parameter):
-        square_perimeter =  side_parameter + side_parameter + side_parameter + side_parameter
+    def __init__(self, side_parameter):
+        #super().__init__()
+        self.side_of_square = side_parameter
+
+    def calculate_perimeter(self):
+        square_perimeter =  4 * self.side_of_square
         print(f'The perimeter of square is: {square_perimeter}')
 
-    def calculate_area(self, side_parameter):
-        square_area = side_parameter * side_parameter
+    def calculate_area(self):
+        square_area = 2 * self.side_of_square
         print(f'The area of the square is: {square_area}')
         
     
 class Rectangle(Shape):
+
+    def __init__(self , base_parameter, high_parameter):
+        #super().__init__()
+        self. base_of_rectangule = base_parameter
+        self.high_of_rectangule = high_parameter
     
-    def calculate_perimeter(self, base_parameter, high_parameter):
-        rectangle_perimeter = 2 * (high_parameter + base_parameter)
+    def calculate_perimeter(self):
+        rectangle_perimeter = 2 * (self.high_of_rectangule + self.base_of_rectangule)
         print(f'The perimeter of the rectangle is: {rectangle_perimeter}')
     
-    def calculate_area(self, base_parameter, high_parameter):
-        rectangle_area = high_parameter * base_parameter
+    def calculate_area(self):
+        rectangle_area = self.high_of_rectangule * self.base_of_rectangule 
         print(f'The area of rectangle is: {rectangle_area}')
         
 

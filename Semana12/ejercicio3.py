@@ -2,45 +2,45 @@
 
 class kaioken:
     
-    def power_kaio_ken():
+    def power_kaio_ken(self):
         print('My super power is execute the kaio ken technique')
 
 class kameha:
 
-    def power_kameha():
+    def power_kameha(self):
         print('My super power is execute the kameha technique')
 
 class Makankosappo:
 
-    def power_Makankosappo():
+    def power_Makankosappo(self):
         print('My super power is execute the Makankosappo technique')
 
 class Masenko:
 
-    def power_Masenko():
+    def power_Masenko(self):
         print('My super power is execute the Masenko technique')
 
 class ballenergy():
 
-    def power_ball_energy():
+    def power_ball_energy(self):
         print('My super power is execute the ball of energy technique')
 
 class superhero(kaioken,kameha,Makankosappo, Masenko,ballenergy):
 
-    def aura():
+    def aura(self):
         print('Aura is being execute')
 
 goku = superhero()
-goku.aura
-goku.power_kameha
+goku.aura()
+goku.power_kameha()
 
 gohan = superhero()
-gohan.aura
-gohan.power_Masenko
+gohan.aura()
+gohan.power_Masenko()
 
 piccolo = superhero()
-piccolo.power_Makankosappo
+piccolo.power_Makankosappo()
 
 vegeta = superhero()
-vegeta.aura
-vegeta.power_ball_energy
+vegeta.aura()
+vegeta.power_ball_energy()
