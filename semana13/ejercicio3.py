@@ -21,19 +21,26 @@ class user:
         return(today.year - self.date_of_birth.year -((today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day) ))    
         
 
-    def check_user_is_adult(func):
+
+
+def check_user_is_adult(func):
         def wrapper(arg):
-            if int(arg) >= 18:
+            #print(arg.age)
+            if int(arg.age) >= 18:
                 print(('User is Adult'))
             else:
                 raise ValueError('User is below the permited age')
+            
+            return func(arg)
 
         return wrapper
 
-    @check_user_is_adult
-    def check_age_of_user(paremeter):
-        pass 
 
-user_Steven = user(date(2015,3,22))
+
+@check_user_is_adult
+def check_age_of_user(paremeter):
+    print('We have check the age of the user and we confirm is adult')
+
+user_Steven = user(date(1993,3,22))
 print(f'Age is: {user_Steven.age}')
-user.check_age_of_user(user_Steven.age)
+check_age_of_user(user_Steven)
