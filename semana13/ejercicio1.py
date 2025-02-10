@@ -3,17 +3,24 @@
 
 def my_personal_decorator(func):
 
-    def wrapper(argumento_1, argumento_2):
+    def wrapper(*args, **kwargs):
 
-        print(f'Values from original function are: {argumento_1} and {argumento_2}')
+        print(f'Values of parameters are: {args}  {kwargs}')
 
-        return func(argumento_1, argumento_2)
+        #Capturar el retorno de la funcion 
+
+        result = func(*args,**kwargs )
+
+        # Imprimir el retorno antes de devolverlo
+        print(f'return value: {result}')
+
+        return result
     
     return wrapper
 
 @my_personal_decorator
-def greetings(parameter_1, parameter_2):
-    print(f'Hello everyone, this is {parameter_1}, telling you that {parameter_2}')
-    return parameter_1 and parameter_2
+def greetings(*args, **kwargs):
+
+    return f'Values are {args} and {kwargs}'
 
 greetings('Steven', 'everything will be ok!')
