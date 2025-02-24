@@ -49,6 +49,7 @@ class Deque:
     
     def pop_left(self):
         if not self.head:
+            print('Deque structure is empty')
             return None
         value = self.head.value
         self.head = self.head.next
@@ -56,10 +57,11 @@ class Deque:
             self.head.prev = None
         else:
             self.tail = None
-        return value
+        return print(f'The node is being remove left side is: {value}')
     
     def pop_right(self):
         if not self.tail:
+            print('Deque structure is empty')
             return None
         value = self.tail.value
         self.tail = self.tail.prev
@@ -67,10 +69,11 @@ class Deque:
             self.tail.next = None
         else:
             self.head = None
-        return value
+        return print(f'The node is being remove from right side is: {value}')
     
 
 my_structure = Deque()
+my_structure.pop_left()
 my_structure.push_left('hi')
 my_structure.push_right('my')
 my_structure.push_left('name')

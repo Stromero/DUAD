@@ -16,37 +16,43 @@ class Stack:
     firstNode : Node
 
     def __init__(self):
-        #self.size = 0
         self.firstNode = None
     
     def push(self, value):
         self.firstNode = Node(value, nextNode=self.firstNode)
-        #self.size += 1
     
     def pop(self):
-        self.firstNode = self.firstNode.nextNode
-        #self.size -= 1
+        if self.firstNode is None:
+            print('The stack is empty')
+        else:
+            element_to_be_removed = self.firstNode.value
+            self.firstNode = self.firstNode.nextNode
+            return print(f'The element is being removed is: {element_to_be_removed}')
 
     def get(self) -> str:
-        return self.firstNode.value
+        if self.firstNode is None:
+            print('The stack is empty')
+        else:
+            return self.firstNode.value
+
+    def print_structure(self):
+        current_node = self.firstNode
+
+        while current_node is not None:
+            print(current_node.value)
+            current_node = current_node.nextNode
     
-    # def getSize(self) -> int:
-    #     return self.size
 
 my_stack = Stack()
+my_stack.get()
+my_stack.pop()
 my_stack.push('Hi')
-print(my_stack.get())
 my_stack.push('I am Steven')
-print(my_stack.get())
 my_stack.push('and')
-print(my_stack.get())
 my_stack.push('learning coding in lyfter team is so cool')
-print(my_stack.get())
+my_stack.print_structure()
 my_stack.pop()
-print(my_stack.get())
 my_stack.pop()
-print(my_stack.get())
-my_stack.pop
-print(my_stack.get())
+my_stack.print_structure()
 
 
