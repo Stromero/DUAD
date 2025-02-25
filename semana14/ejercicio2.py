@@ -24,10 +24,14 @@ class Deque:
         self.tail = None
     
     def print_deque(self):
+        elements = []
         current = self.head
         while current:
-            print(current.value)
+            #print(current.value)
+            elements.append(current.value)
             current = current.next
+        
+        print("Deque: [", ",".join(elements), "]")
     
     def push_left(self,value):
         new_node = Node(value)
