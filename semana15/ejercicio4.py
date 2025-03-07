@@ -17,15 +17,15 @@ def check_if_lists_have_an_equal(list_a, list_b):
 # print_10_or_less_elements
 def print_10_or_less_elements(list_to_print):
 	list_len = len(list_to_print) # O (1)
-	for index in range(min(list_len, 10)): # O (log n)
+	for index in range(min(list_len, 10)): # O (n)
 		print(list_to_print[index]) # O (1)
 
 # generate_list_trios
 def generate_list_trios(list_a, list_b, list_c):
 	result_list = [] # O (1)
 	for element_a in list_a: # O (n)
-		for element_b in list_b: # O (n^2)
-			for element_c in list_c: # O (n^3)
+		for element_b in list_b: # O (n)
+			for element_c in list_c: # O (n)
 				result_list.append(f'{element_a} {element_b} {element_c}') # O (n)
 				
 	return result_list # O (1)
