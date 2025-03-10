@@ -3,9 +3,9 @@
 
 def bubble_sort(list_to_sort): 
 
-    for external_index in range(0,len(list_to_sort) - 1): # O (n)
+    for external_index in range(0,len(list_to_sort) - 1): # O (1)
 
-        for index in range(0,len(list_to_sort) - 1): # O (n)
+        for index in range(0,len(list_to_sort) - 1): # O (1)
 
             current_element = list_to_sort[index] # O (n)
 
