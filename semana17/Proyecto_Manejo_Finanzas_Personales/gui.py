@@ -74,17 +74,17 @@ def main_window():
     while True:
         event , values =  window.read()
 
-        if event == sg.WINDOW_CLOSED:
+        if event in (sg.WINDOW_CLOSED,'Exit'):
             break
         if event == '-ADDCATEGORY-':
             window.hide()
             new_window = category_window()
         if event == '-EXPENSE-':
-             window.hide()
-             new_window = expense_window()
+            window.hide()
+            new_window = expense_window()
         if event == '-INCOME-':
-             window.hide()
-             new_window = income_window()
+            window.hide()
+            new_window = income_window()
 
         while True:
             new_event , new_values = new_window.read()
@@ -128,6 +128,14 @@ def main_window():
                 check_detail_info = data.check_input_is_valid_string(new_values['-INDETAIL-'])
                 check_amount_info = data.check_input_is_valid_string(new_values['-AMOUNTDETAIL-'])
 
+                if check_category_info == 'Not empty':
+                    check_if_category_already_exist = data.check_if_category_already_exist(new_values['-COMBOBOXCATEGORY-'],table_values_category)
+                else:
+                    check_if_category_already_exist = None
+
+                if check_if_category_already_exist == 'does not exist':
+                    sg.popup('Category does not exist, please add to continue with the process')
+
                 if check_amount_info == 'Not empty':
                     check_is_valid_number = data.check_valid_input_number(new_values['-AMOUNTDETAIL-'])
                     if check_is_valid_number == 'is numeric':
@@ -136,7 +144,7 @@ def main_window():
                         sg.popup('Not negative amount value is allow')
                 else:
                     check_is_valid_number = 'Not numeric'
-
+                
                 if check_category_info == 'Empty':
                     sg.popup('Missing or Invalid Category, choose a category from dropdown list')
 
@@ -163,6 +171,15 @@ def main_window():
                 check_detail_info = data.check_input_is_valid_string(new_values['-INDETAIL-'])
                 check_amount_info = data.check_input_is_valid_string(new_values['-INAMOUNT-'])
 
+                if check_category_info == 'Not empty':
+                    check_if_category_already_exist = data.check_if_category_already_exist(new_values['-COMBOCATEGORY-'],table_values_category)
+                else:
+                    check_if_category_already_exist = None
+
+                if check_if_category_already_exist == 'does not exist':
+                    sg.popup('Category does not exist, please add to continue with the process')
+                
+
                 if check_amount_info == 'Not empty':
                     check_is_valid_number = data.check_valid_input_number(new_values['-INAMOUNT-'])
                     if check_is_valid_number == 'is numeric':
@@ -181,7 +198,7 @@ def main_window():
                 if check_amount_info == 'Empty':
                     sg.popup('Missing or Invalid amount, add an amount')
 
-                if check_category_info != 'Empty' and check_detail_info != 'Empty' and check_is_valid_number == 'is numeric':
+                if check_category_info != 'Empty' and check_detail_info != 'Empty' and check_is_valid_number == 'is numeric' and check_if_category_already_exist == 'exist':
                     list_of_category_values = new_values['-COMBOCATEGORY-']
                     category_information = list_of_category_values[0]
                     type_information = list_of_category_values[1]

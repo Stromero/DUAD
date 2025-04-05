@@ -84,14 +84,25 @@ def check_valid_input_number(parameter):
     try:
         parameter_value = int(parameter)
         print("User input is an integer")
-        parameter_value = 'is numeric'
+        if parameter_value >= 0:
+            res = 'is numeric'
+        else:
+            res = 'Not numeric'
     except ValueError:
         print("User input is not an integer")
-        parameter_value = 'Not numeric'
+        res = 'Not numeric'
     
-    return parameter_value
-    # if isinstance(parameter,int) and parameter >= 0 :
-    #     return 'is numeric'
-    # else:
-    #     return 'Not numeric'
+    return res
+
+def check_if_category_already_exist(category_parameter,list_category):
+
+    for item in list_category:
+        print(f'category parameter: {category_parameter[0]}, item of the list: {''.join(item[0])}')
+        if category_parameter[0] == ''.join(item[0]):
+            res = 'exist'
+            break
+        else:    
+            res = 'does not exist'
+    
+    return res
 
