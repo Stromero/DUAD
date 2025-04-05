@@ -46,6 +46,18 @@ def expense_window():
 
     return sg.Window('Expense',layout)
 
+def income_window():
+        
+    layout = [
+        [sg.Text('Add the income')],
+        [sg.Text('Category: '),sg.Combo(values=table_values_category,key='-COMBOCATEGORY-')],
+        [sg.Text('Detail: '),sg.InputText(key='-INDETAIL-')],
+        [sg.Text('Amount: '),sg.InputText(key='-INAMOUNT-')],
+        [sg.Button('Add',key='-ADDINCOME-'),sg.Button('Cancel',key='-CANCELINCOME-'),sg.Button('Back')]
+    ]
+
+    return sg.Window('Income',layout)
+
 def main_window():
 
     layout = [
@@ -70,9 +82,9 @@ def main_window():
         if event == '-EXPENSE-':
              window.hide()
              new_window = expense_window()
-        # if event == '-INCOME-':
-        #     window.hide()
-        #     new_window = add_income()
+        if event == '-INCOME-':
+             window.hide()
+             new_window = income_window()
 
         while True:
             new_event , new_values = new_window.read()
@@ -81,9 +93,21 @@ def main_window():
                 new_window.close()
                 window.un_hide()
                 break
+
             if new_event == '-CANCELCATEGORY-':
                 new_window['-INCATEGORY-'].update('')
                 new_window['-TYPECATEGORY-'].update('')
+
+            if new_event == '-CANCELEXPENSE-':
+                new_window['-COMBOBOXCATEGORY-'].update('')
+                new_window['-INDETAIL-'].update('')
+                new_window['-AMOUNTDETAIL-'].update('')
+
+            if new_event == '-CANCELINCOME-':
+                new_window['-COMBOCATEGORY-'].update('')
+                new_window['-INDETAIL-'].update('')
+                new_window['-INAMOUNT-'].update('')    
+
             if new_event == '-ADDCATEGORY-':
                 check_category_name = data.check_input_is_valid_string(new_values['-INCATEGORY-'])
                 check_category_type = data.check_input_is_valid_string(new_values['-TYPECATEGORY-'])
@@ -97,41 +121,81 @@ def main_window():
                     table_values_category.append([category.nombre, category.tipo])
                     new_window['-INCATEGORY-'].update('')
                     new_window['-TYPECATEGORY-'].update('')
-                    new_window['-CATEGORYTABLE-'].update(values=table_values_category)   
-            if new_event == '-CANCELEXPENSE-':
-                new_window['-COMBOBOXCATEGORY-'].update('')
-                new_window['-INDETAIL-'].update('')
-                new_window['-AMOUNTDETAIL-'].update('')
+                    new_window['-CATEGORYTABLE-'].update(values=table_values_category)
+
             if new_event == '-ADDEXPENSE-':
                 check_category_info = data.check_input_is_valid_string(new_values['-COMBOBOXCATEGORY-'])
-                print(f'Category information: {check_category_info}')
-                if check_category_info == 'Empty':
-                    sg.popup('Choose a category')
+                check_detail_info = data.check_input_is_valid_string(new_values['-INDETAIL-'])
+                check_amount_info = data.check_input_is_valid_string(new_values['-AMOUNTDETAIL-'])
+
+                if check_amount_info == 'Not empty':
+                    check_is_valid_number = data.check_valid_input_number(new_values['-AMOUNTDETAIL-'])
+                    if check_is_valid_number == 'is numeric':
+                        amount_information = new_values['-AMOUNTDETAIL-']
+                    else:
+                        sg.popup('Not negative amount value is allow')
                 else:
+                    check_is_valid_number = 'Not numeric'
+
+                if check_category_info == 'Empty':
+                    sg.popup('Missing or Invalid Category, choose a category from dropdown list')
+
+                if check_detail_info == 'Empty':
+                    sg.popup('Missing or invalid detail, add a detail')
+
+                if check_amount_info == 'Empty':
+                    sg.popup('Missing or Invalid amount, add an amount')
+
+                if check_category_info != 'Empty' and check_detail_info != 'Empty' and check_is_valid_number == 'is numeric':
                     list_of_category_values = new_values['-COMBOBOXCATEGORY-']
                     category_information = list_of_category_values[0]
                     type_information = list_of_category_values[1]
-                    print(f'category: {category_information}, type: {type_information}')
+                    detail_information = new_values['-INDETAIL-']
+                    print(f'category: {category_information}, type: {type_information}, detail is: {detail_information}, amount information is: {amount_information}')
+                    transaction = models.Transaction(detail_information,category_information,type_information,amount_information)
+                    data.save_transaction(transaction)
+                    new_window['-INDETAIL-'].update('')
+                    new_window['-AMOUNTDETAIL-'].update('')
+                    new_window['-COMBOBOXCATEGORY-'].update(values=table_values_category)
 
+            if new_event == '-ADDINCOME-':
+                check_category_info = data.check_input_is_valid_string(new_values['-COMBOCATEGORY-'])
+                check_detail_info = data.check_input_is_valid_string(new_values['-INDETAIL-'])
+                check_amount_info = data.check_input_is_valid_string(new_values['-INAMOUNT-'])
 
-                #category_information = new_values['-COMBOBOXCATEGORY-']
-                #convert_to_string = ' '.join(category_information)
-                #new_category_value = convert_to_string        
-                #res = check_if_category_exist(new_category_value,table_values_category)   
-                #print(res)
-                #if res == 'does not exist':
-                #    sg.popup('Category does not exist, add the category to continue')
-                #    new_window.close()
-                #    window.un_hide()
-                #    break
-                #print(f'new category info: {new_category_value}')
-                #detail_information = new_values['-INDETAIL-']
-                #amount_information = new_values['-AMOUNTDETAIL-']
-                #print(f'the category selected is: {new_category_value}, detail information is: {detail_information}, amount of this expense is: {amount_information}')
-                #register(detail_information,new_category_value,'Expense',amount_information)
-                #new_window['-INDETAIL-'].update('')
-                #new_window['-AMOUNTDETAIL-'].update('')
-                #new_window['-COMBOBOXCATEGORY-'].update(values=table_values_category)
+                if check_amount_info == 'Not empty':
+                    check_is_valid_number = data.check_valid_input_number(new_values['-INAMOUNT-'])
+                    if check_is_valid_number == 'is numeric':
+                        amount_information = new_values['-INAMOUNT-']
+                    else:
+                        sg.popup('Not negative amount value is allow')
+                else:
+                    check_is_valid_number = 'Not numeric'
+
+                if check_category_info == 'Empty':
+                    sg.popup('Missing or Invalid Category, choose a category from dropdown list')
+
+                if check_detail_info == 'Empty':
+                    sg.popup('Missing or invalid detail, add a detail')
+
+                if check_amount_info == 'Empty':
+                    sg.popup('Missing or Invalid amount, add an amount')
+
+                if check_category_info != 'Empty' and check_detail_info != 'Empty' and check_is_valid_number == 'is numeric':
+                    list_of_category_values = new_values['-COMBOCATEGORY-']
+                    category_information = list_of_category_values[0]
+                    type_information = list_of_category_values[1]
+                    detail_information = new_values['-INDETAIL-']
+                    print(f'category: {category_information}, type: {type_information}, detail is: {detail_information}, amount information is: {amount_information}')
+                    transaction = models.Transaction(detail_information,category_information,type_information,amount_information)
+                    data.save_transaction(transaction)
+                    new_window['-INDETAIL-'].update('')
+                    new_window['-INAMOUNT-'].update('')
+                    new_window['-COMBOCATEGORY-'].update(values=table_values_category)
+
+        table_values_test = data.load_main_window_movements_table()
+        window['-MAINTABLE-'].update(values=table_values_test)
+
 
     window.close()
 
