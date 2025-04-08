@@ -109,27 +109,30 @@ def main_window():
                 new_window['-INAMOUNT-'].update('')    
 
             if new_event == '-ADDCATEGORY-':
-                check_category_name = data.check_input_is_valid_string(new_values['-INCATEGORY-'])
-                check_category_type = data.check_input_is_valid_string(new_values['-TYPECATEGORY-'])
-                if check_category_name == 'Empty' or check_category_type == 'Empty':
+                check_category_name = models.check_input_is_valid_string(new_values['-INCATEGORY-'])
+                check_category_name_has_spaces = models.check_if_user_entry_has_spaces(new_values['-INCATEGORY-'])
+                check_category_type = models.check_input_is_valid_string(new_values['-TYPECATEGORY-'])
+                check_category_type_has_spaces = models.check_if_user_entry_has_spaces(new_values['-TYPECATEGORY-'])
+                if check_category_name == 'Empty' or check_category_type == 'Empty' or check_category_name_has_spaces == 'has spaces' or check_category_type_has_spaces == 'has spaces':
                     sg.popup('Category or type are in blank')
                 else:
                     name_of_category = new_values['-INCATEGORY-']
                     type_of_category = new_values['-TYPECATEGORY-']
                     category = models.Category(name_of_category,type_of_category)
-                    data.save_category(category)
+                    models.Category.save_category(category)
                     table_values_category.append([category.nombre, category.tipo])
                     new_window['-INCATEGORY-'].update('')
                     new_window['-TYPECATEGORY-'].update('')
                     new_window['-CATEGORYTABLE-'].update(values=table_values_category)
 
             if new_event == '-ADDEXPENSE-':
-                check_category_info = data.check_input_is_valid_string(new_values['-COMBOBOXCATEGORY-'])
-                check_detail_info = data.check_input_is_valid_string(new_values['-INDETAIL-'])
-                check_amount_info = data.check_input_is_valid_string(new_values['-AMOUNTDETAIL-'])
+                check_category_info = models.check_input_is_valid_string(new_values['-COMBOBOXCATEGORY-'])
+                check_detail_info = models.check_input_is_valid_string(new_values['-INDETAIL-'])
+                check_detail_has_spaces = models.check_if_user_entry_has_spaces(new_values['-INDETAIL-'])
+                check_amount_info = models.check_input_is_valid_string(new_values['-AMOUNTDETAIL-'])
 
                 if check_category_info == 'Not empty':
-                    check_if_category_already_exist = data.check_if_category_already_exist(new_values['-COMBOBOXCATEGORY-'],table_values_category)
+                    check_if_category_already_exist = models.Category.check_if_category_already_exist(new_values['-COMBOBOXCATEGORY-'],table_values_category)
                 else:
                     check_if_category_already_exist = None
 
@@ -137,11 +140,11 @@ def main_window():
                     sg.popup('Category does not exist, please add to continue with the process')
 
                 if check_amount_info == 'Not empty':
-                    check_is_valid_number = data.check_valid_input_number(new_values['-AMOUNTDETAIL-'])
+                    check_is_valid_number = models.Transaction.check_valid_input_number(new_values['-AMOUNTDETAIL-'])
                     if check_is_valid_number == 'is numeric':
                         amount_information = new_values['-AMOUNTDETAIL-']
                     else:
-                        sg.popup('Not negative amount value is allow')
+                        sg.popup('Amount value should be bigger than 0')
                 else:
                     check_is_valid_number = 'Not numeric'
                 
@@ -150,29 +153,33 @@ def main_window():
 
                 if check_detail_info == 'Empty':
                     sg.popup('Missing or invalid detail, add a detail')
+                
+                if check_detail_has_spaces == 'has spaces':
+                    sg.popup('Missing or invalid detail, add a detail')
 
                 if check_amount_info == 'Empty':
                     sg.popup('Missing or Invalid amount, add an amount')
 
-                if check_category_info != 'Empty' and check_detail_info != 'Empty' and check_is_valid_number == 'is numeric':
+                if check_category_info != 'Empty' and check_detail_info != 'Empty' and check_detail_has_spaces == 'No spaces' and check_is_valid_number == 'is numeric' and check_if_category_already_exist == 'exist':
                     list_of_category_values = new_values['-COMBOBOXCATEGORY-']
                     category_information = list_of_category_values[0]
                     type_information = list_of_category_values[1]
                     detail_information = new_values['-INDETAIL-']
                     print(f'category: {category_information}, type: {type_information}, detail is: {detail_information}, amount information is: {amount_information}')
                     transaction = models.Transaction(detail_information,category_information,type_information,amount_information)
-                    data.save_transaction(transaction)
+                    models.Transaction.save_transaction(transaction)
                     new_window['-INDETAIL-'].update('')
                     new_window['-AMOUNTDETAIL-'].update('')
                     new_window['-COMBOBOXCATEGORY-'].update(values=table_values_category)
 
             if new_event == '-ADDINCOME-':
-                check_category_info = data.check_input_is_valid_string(new_values['-COMBOCATEGORY-'])
-                check_detail_info = data.check_input_is_valid_string(new_values['-INDETAIL-'])
-                check_amount_info = data.check_input_is_valid_string(new_values['-INAMOUNT-'])
+                check_category_info = models.check_input_is_valid_string(new_values['-COMBOCATEGORY-'])
+                check_detail_info = models.check_input_is_valid_string(new_values['-INDETAIL-'])
+                check_detail_has_spaces = models.check_if_user_entry_has_spaces (new_values['-INDETAIL-'])
+                check_amount_info = models.check_input_is_valid_string(new_values['-INAMOUNT-'])
 
                 if check_category_info == 'Not empty':
-                    check_if_category_already_exist = data.check_if_category_already_exist(new_values['-COMBOCATEGORY-'],table_values_category)
+                    check_if_category_already_exist = models.Category.check_if_category_already_exist(new_values['-COMBOCATEGORY-'],table_values_category)
                 else:
                     check_if_category_already_exist = None
 
@@ -181,11 +188,11 @@ def main_window():
                 
 
                 if check_amount_info == 'Not empty':
-                    check_is_valid_number = data.check_valid_input_number(new_values['-INAMOUNT-'])
+                    check_is_valid_number = models.Transaction.check_valid_input_number(new_values['-INAMOUNT-'])
                     if check_is_valid_number == 'is numeric':
                         amount_information = new_values['-INAMOUNT-']
                     else:
-                        sg.popup('Not negative amount value is allow')
+                        sg.popup('Amount value should be bigger than 0')
                 else:
                     check_is_valid_number = 'Not numeric'
 
@@ -194,18 +201,21 @@ def main_window():
 
                 if check_detail_info == 'Empty':
                     sg.popup('Missing or invalid detail, add a detail')
+                
+                if check_detail_has_spaces == 'has spaces':
+                    sg.popup('Missing or invalid detail, add a detail')
 
                 if check_amount_info == 'Empty':
                     sg.popup('Missing or Invalid amount, add an amount')
 
-                if check_category_info != 'Empty' and check_detail_info != 'Empty' and check_is_valid_number == 'is numeric' and check_if_category_already_exist == 'exist':
+                if check_category_info != 'Empty' and check_detail_info != 'Empty' and check_is_valid_number == 'is numeric' and check_if_category_already_exist == 'exist' and check_detail_has_spaces == 'No spaces':
                     list_of_category_values = new_values['-COMBOCATEGORY-']
                     category_information = list_of_category_values[0]
                     type_information = list_of_category_values[1]
                     detail_information = new_values['-INDETAIL-']
                     print(f'category: {category_information}, type: {type_information}, detail is: {detail_information}, amount information is: {amount_information}')
                     transaction = models.Transaction(detail_information,category_information,type_information,amount_information)
-                    data.save_transaction(transaction)
+                    models.Transaction.save_transaction(transaction)
                     new_window['-INDETAIL-'].update('')
                     new_window['-INAMOUNT-'].update('')
                     new_window['-COMBOCATEGORY-'].update(values=table_values_category)
