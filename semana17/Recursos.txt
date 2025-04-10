@@ -1,0 +1,8 @@
+*** Videos acerca de GUI *** ->
+https://www.youtube.com/@TheCSClassroom/videos
+
+*** Repositorio de GitHub *** ->
+https://github.com/spyoungtech/FreeSimpleGUI/tree/main
+
+*** Documentacion de FreeSimpleGUI *** ->
+https://docs.pysimplegui.com/en/latest/
