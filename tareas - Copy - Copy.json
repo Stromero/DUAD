@@ -1,0 +1,26 @@
+[
+    {
+        "Identificador": 1,
+        "Titulo": "Reunion de requerimientos",
+        "Descripcion": "Crear una reunion para conocer el cliente y empezar la primera etapa de producto",
+        "Estado": "Por hacer"
+    },
+    {
+        "Identificador": 2,
+        "Titulo": "Reunion conocer el producto",
+        "Descripcion": "Esta es una reunion para cononcer el producto",
+        "Estado": "Por hacer"
+    },
+    {
+        "Identificador": 3,
+        "Titulo": "Etapa 2",
+        "Descripcion": "Esta es una reunion para cononcer el producto",
+        "Estado": "Progreso"
+    },
+    {
+        "Identificador": 4,
+        "Titulo": "Etapa 7",
+        "Descripcion": "Esta es una reunion para cononcer el producto",
+        "Estado": "Completo"
+    }
+]
