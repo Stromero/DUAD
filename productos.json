@@ -1,0 +1,12 @@
+[
+    {
+        "Identificador": 1,
+        "Nombre Producto": "Vacuna contra pulgas",
+        "Precio": 3000
+    },
+    {
+        "Identificador": 3,
+        "Nombre Producto": "Shampoo para perros",
+        "Precio": 4800
+    }
+]

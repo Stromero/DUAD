@@ -1,0 +1,15 @@
+from flask import Flask, jsonify, request
+import json
+
+app = Flask(__name__)
+
+@app.route("/iniciarsesion")
+def iniciar_sesion():
+    pass
+
+@app.route("/registro")
+def registro():
+    pass
+
+if __name__ == "__Autenticacion__":
+    app.run(port="localhost",debug=True)
