@@ -3,12 +3,12 @@ import json
 
 app = Flask(__name__)
 
-@app.route("/iniciarsesion")
-def iniciar_sesion():
+@app.route("/login")
+def login():
     pass
 
-@app.route("/registro")
-def registro():
+@app.route("/register")
+def register():
     pass
 
 if __name__ == "__Autenticacion__":
