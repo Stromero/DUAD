@@ -1,0 +1,14 @@
+[
+    {
+        "Identificador": 1,
+        "Descripcion": "Venta de alimento para conejos"
+    },
+    {
+        "Identificador": 2,
+        "Descripcion": "Venta de alimento para vacas"
+    },
+    {
+        "Identificador": 3,
+        "Descripcion": "Venta de alimento para perros"
+    }
+]

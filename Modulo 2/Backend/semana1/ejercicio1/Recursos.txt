@@ -9,66 +9,55 @@ https://github.com/Vysh01/flask-crud/blob/master/main.py
     {
         "Descripcion": "Esta es una reunion para cononcer al cliente",
         "Estado": "Por hacer",
-        "Identificador": 2,
         "Titulo": "Reunion con cliente"
     },
     {
         "Descripcion": "Esta es una reunion para cononcer el producto",
         "Estado": "Por hacer",
-        "Identificador": 3,
         "Titulo": "Reunion conocer el producto"
     },
     {
         "Descripcion": "Esta es una reunion para cononcer el producto",
         "Estado": "Por hacer",
-        "Identificador": 4,
         "Titulo": "Desarrollo del producto"
     },
     {
         "Descripcion": "Esta es una reunion para cononcer el producto",
         "Estado": "Por hacer",
-        "Identificador": 5,
         "Titulo": "Etapa 1"
     },
     {
         "Descripcion": "Esta es una reunion para cononcer el producto",
         "Estado": "Progreso",
-        "Identificador": 6,
         "Titulo": "Etapa 2"
     },
     {
         "Descripcion": "Esta es una reunion para cononcer el producto",
         "Estado": "Progreso",
-        "Identificador": 7,
         "Titulo": "Etapa 3"
     },
     {
         "Descripcion": "Esta es una reunion para cononcer el producto",
-        "Estado": "Completo",
-        "Identificador": 8,
+        "Estado": "Completo",       
         "Titulo": "Etapa 4"
     },
     {
         "Descripcion": "Esta es una reunion para cononcer el producto",
-        "Estado": "Completo",
-        "Identificador": 9,
+        "Estado": "Completo",      
         "Titulo": "Etapa 5"
     },
     {
         "Descripcion": "Esta es una reunion para cononcer el producto",
-        "Estado": "Completo",
-        "Identificador": 10,
+        "Estado": "Completo",    
         "Titulo": "Etapa 6"
     },
     {
         "Descripcion": "Esta es una reunion para cononcer el producto",
-        "Estado": "Completo",
-        "Identificador": 11,
+        "Estado": "Completo",      
         "Titulo": "Etapa 7"
     },
     {
         "Descripcion": "Esta es una reunion para cononcer el producto",
-        "Estado": "Progreso",
-        "Identificador": 12,
+        "Estado": "Progreso",   
         "Titulo": "Etapa 8"
     }
