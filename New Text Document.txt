@@ -1,0 +1,13 @@
+Espero te encuentres bien!
+
+Gracias 🙌🏽 por los buenos comentarios.
+
+Comentarte que he trabajado en las recomendaciones que me hiciste y queria decirle lo siguiente con respecto al punto de ⚠️ Validaciones faltantes, agregue un metodo en el modulo models.py que valida si tiene espacios, tab, etc, realice diferentes tipos de pruebas con este escenario y las que pense, me funcionaron bien, yo estaria atento a si trabajas un nuevo escenario que yo no haya pensado para ver si sale alguna nueva correccion por realizar.
+
+ Con respecto a 📌 Mejora en el uso de Programación Orientada a Objetos (POO), me pusiste mucho a pensar y analizar mi codigo y me di cuenta que metodos que tenia en el modulo data.py como save_category, save_transaction, check_if_category_already_exist  podrias ser metodos de las mismas clases, decidi moverlas de data.py a models.py en su respectiva clase y los metodos de check_input_is_valid_string y check_if_user_entry_has_spaces los deje fuera de la clase por que ambas clases lo utilizan, igual quedo atento a su revision y ver si esta bien implementado o necesita correciones.
+
+con respeto a 💥 Uso de excepciones para validar entradas, como mencione en apartado anterior movi muchas metodos para la clase models.py y le agregue las que considero que aplican para cada clase como categoria y transaccion y dejando unas por fuera de las clases por que funcionan para ambos desde mi perpectiva y esperando que este bueno y sea una buena practica.
+
+Quedo atento
+
+Gracias de antemano
