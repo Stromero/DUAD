@@ -1,0 +1,320 @@
+PARTE 1: Crear y popular la DB
+
+1. Crear un schema llamado lytfer_car_rental
+
+CREATE SCHEMA lyfter_duad
+    AUTHORIZATION postgres;
+
+2. Cree un script donde se cree una table de usuarios
+
+CREATE TABLE lyfter_car_rental.users(
+id INTEGER GENERATED ALWAYS AS IDENTITY,
+user_name VARCHAR(255),
+e_mail VARCHAR(255),
+username VARCHAR(255),
+pass VARCHAR(255),
+date_of_birth DATE,
+status VARCHAR(255),
+PRIMARY KEY(id)
+);
+
+INSERT INTO lyfter_car_rental.users (user_name, e_mail, username, pass, date_if_birth, status) VALUES
+('Carlos Gómez', 'carlos.gomez01@example.com', 'cgomez01', 'pass1234', '1989-03-14', 'active'),
+('Lucía Ortega', 'lucia.ortega02@example.com', 'lortega02', 'secure987', '1995-11-05', 'active'),
+('Pedro Sánchez', 'pedro.sanchez03@example.com', 'psanchez03', 'qwerty123', '1992-06-22', 'inactive'),
+('María López', 'maria.lopez04@example.com', 'mlopez04', 'mypass456', '1988-04-30', 'active'),
+('José Ramírez', 'jose.ramirez05@example.com', 'jramirez05', '123abc', '1990-01-18', 'banned'),
+('Camila Méndez', 'camila.mendez06@example.com', 'cmendez06', 'pass321', '1996-09-09', 'active'),
+('Diego Ruiz', 'diego.ruiz07@example.com', 'druiz07', 'testpass', '1987-10-15', 'inactive'),
+('Sofía Molina', 'sofia.molina08@example.com', 'smolina08', 'abc12345', '1994-07-01', 'active'),
+('Hugo Jiménez', 'hugo.jimenez09@example.com', 'hjimenez09', 'hugopass', '1985-02-27', 'active'),
+('Valentina Cruz', 'valentina.cruz10@example.com', 'vcruz10', 'vpass2023', '1998-08-20', 'banned'),
+('Mateo Vargas', 'mateo.vargas11@example.com', 'mvargas11', 'mv123456', '1991-03-03', 'active'),
+('Laura Díaz', 'laura.diaz12@example.com', 'ldiaz12', 'ld567890', '1993-12-11', 'inactive'),
+('Andrés Navarro', 'andres.navarro13@example.com', 'anavarro13', 'ansecure', '1989-06-06', 'active'),
+('Carla Herrera', 'carla.herrera14@example.com', 'cherrera14', 'carla432', '1995-10-10', 'active'),
+('Tomás Rivas', 'tomas.rivas15@example.com', 'trivas15', 'tomaspass', '1990-04-25', 'inactive'),
+('Isabela Castro', 'isabela.castro16@example.com', 'icastro16', 'isa321', '1997-05-17', 'active'),
+('Javier Bravo', 'javier.bravo17@example.com', 'jbravo17', 'jbpass78', '1986-07-19', 'active'),
+('Daniela Paredes', 'daniela.paredes18@example.com', 'dparedes18', 'dp2022', '1999-01-09', 'banned'),
+('Sebastián León', 'sebastian.leon19@example.com', 'sleon19', 'slpass99', '1992-12-24', 'active'),
+('Emma Silva', 'emma.silva20@example.com', 'esilva20', 'empass101', '1996-03-01', 'active'),
+('Martín Peña', 'martin.pena21@example.com', 'mpena21', 'mpsecure', '1988-08-14', 'inactive'),
+('Antonia Soto', 'antonia.soto22@example.com', 'asoto22', 'apass890', '1995-11-23', 'active'),
+('Fernando Carrillo', 'fernando.carrillo23@example.com', 'fcarrillo23', 'fcpass234', '1987-09-13', 'active'),
+('Paula Rojas', 'paula.rojas24@example.com', 'projas24', 'projas789', '1994-05-06', 'banned'),
+('Iván Salazar', 'ivan.salazar25@example.com', 'isalazar25', 'isalazar88', '1990-02-28', 'active'),
+('Renata Aguirre', 'renata.aguirre26@example.com', 'raguirre26', 'renata234', '1996-04-12', 'inactive'),
+('Nicolás Cordero', 'nicolas.cordero27@example.com', 'ncordero27', 'nico12345', '1993-06-30', 'active'),
+('Alejandra Muñoz', 'alejandra.munoz28@example.com', 'amunoz28', 'amunoz2023', '1997-01-04', 'active'),
+('Gabriel Lozano', 'gabriel.lozano29@example.com', 'glozano29', 'gab123', '1989-09-19', 'active'),
+('Julieta Araya', 'julieta.araya30@example.com', 'jaraya30', 'julieta77', '1995-10-03', 'inactive'),
+('Rodrigo Palacios', 'rodrigo.palacios31@example.com', 'rpalacios31', 'rodripass', '1991-03-22', 'banned'),
+('Mía Quintana', 'mia.quintana32@example.com', 'mquintana32', 'miaq321', '1998-07-11', 'active'),
+('Cristian Medina', 'cristian.medina33@example.com', 'cmedina33', 'cpass33', '1992-05-25', 'active'),
+('Abril Figueroa', 'abril.figueroa34@example.com', 'afigueroa34', 'abrilpass', '1994-12-02', 'inactive'),
+('Álvaro Pino', 'alvaro.pino35@example.com', 'apino35', 'alvpass99', '1986-01-27', 'active'),
+('Florencia Zamora', 'florencia.zamora36@example.com', 'fzamora36', 'fzamora88', '1997-08-29', 'active'),
+('Bruno Del Valle', 'bruno.delvalle37@example.com', 'bdelvalle37', 'brunopass', '1990-06-08', 'banned'),
+('Catalina Reyes', 'catalina.reyes38@example.com', 'creyes38', 'cat1234', '1995-04-16', 'active'),
+('Samuel Núñez', 'samuel.nunez39@example.com', 'snunez39', 'sampass', '1993-02-14', 'inactive'),
+('Luna Márquez', 'luna.marquez40@example.com', 'lmarquez40', 'lunita99', '1998-09-06', 'active'),
+('Benjamín Fuentes', 'benjamin.fuentes41@example.com', 'bfuentes41', 'benpass41', '1991-11-17', 'active'),
+('Manuela Godoy', 'manuela.godoy42@example.com', 'mgodoy42', 'manupass', '1996-05-29', 'banned'),
+('Agustín Tapia', 'agustin.tapia43@example.com', 'atapia43', 'agustin21', '1988-07-31', 'active'),
+('Josefina Beltrán', 'josefina.beltran44@example.com', 'jbeltran44', 'josbel321', '1994-03-09', 'inactive'),
+('Facundo Sepúlveda', 'facundo.sepulveda45@example.com', 'fsepulveda45', 'facundo45', '1992-10-10', 'active'),
+('Amanda Valenzuela', 'amanda.valenzuela46@example.com', 'avalenzuela46', 'amanda00', '1997-12-25', 'active'),
+('Gael Rojas', 'gael.rojas47@example.com', 'grojas47', 'gael1234', '1995-01-15', 'active'),
+('Martina Saavedra', 'martina.saavedra48@example.com', 'msaavedra48', 'martina48', '1999-02-05', 'inactive'),
+('Franco Medina', 'franco.medina49@example.com', 'fmedina49', 'fmpass', '1990-06-01', 'active'),
+('Natalia Torres', 'natalia.torres50@example.com', 'ntorres50', 'ntpass50', '1987-11-20', 'active');
+
+3. Cree un script igual al anterior, pero para una table de automoviles
+
+CREATE TABLE lyfter_car_rental.vehicules(
+id INTEGER GENERATED ALWAYS AS IDENTITY,
+brand VARCHAR(255),
+model VARCHAR(255),
+year_of_creation VARCHAR(255),
+status VARCHAR(255),
+PRIMARY KEY(id)
+);
+
+INSERT INTO lyfter_car_rental.vehicules (brand, model, year_of_creation, status) VALUES
+('Toyota', 'Corolla', '2018', 'available'),
+('Honda', 'Civic', '2019', 'rented'),
+('Ford', 'Focus', '2020', 'maintenance'),
+('Chevrolet', 'Cruze', '2017', 'available'),
+('Nissan', 'Sentra', '2021', 'rented'),
+('Volkswagen', 'Jetta', '2016', 'decommissioned'),
+('Hyundai', 'Elantra', '2022', 'available'),
+('Kia', 'Forte', '2020', 'rented'),
+('Mazda', '3', '2019', 'available'),
+('Renault', 'Megane', '2015', 'maintenance');
+
+4.Finalmente, cree una table cruz para relacionar los alquileres de los carros con los usuarios
+
+CREATE TABLE lyfter_car_rental.rents(
+id INTEGER GENERATED ALWAYS AS IDENTITY,
+customer_id INT REFERENCES lyfter_car_rental.users(id),
+vehicule_id INT REFERENCES lyfter_car_rental.vehicules(id),
+date_of_register DATE DEFAULT CURRENT_DATE,
+status VARCHAR(255),
+PRIMARY KEY(id)
+);
+
+PARTE 2: Pruebas básicas de la DB
+
+Query#a
+INSERT INTO lyfter_car_rental.users (user_name, e_mail, username, pass, date_of_birth, status) VALUES
+('Priscilla Chaves', 'Pri.chaves01@example.com', 'pri.ch.f', 'Pri1234', '1990-12-26', 'active')
+
+Query#b
+INSERT INTO lyfter_car_rental.vehicules (brand, model, year_of_creation, status) VALUES
+('Kia', 'Sportage', '2015', 'available')
+
+Query#c
+UPDATE lyfter_car_rental.users
+SET status = 'inactive'
+WHERE ID = 2
+
+Query#d
+UPDATE lyfter_car_rental.vehicules
+SET status = 'rented'
+WHERE ID = 10
+
+Query#e 
+INSERT INTO lyfter_car_rental.rents (customer_id, vehicule_id,status) VALUES
+(7,4,'On Progress')
+(8, 9, 'On Progress'),
+(10, 3, 'On Progress'),
+(22, 4, 'On Progress'),
+(27, 5, 'On Progress'),
+(32, 9, 'On Progress'),
+(39, 10, 'On Progress'),
+(41, 11, 'On Progress'),
+(46, 12, 'On Progress')
+
+Query#f
+
+BEGIN;
+UPDATE lyfter_car_rental.vehicules
+SET status = 'Available'
+WHERE id = 3;
+
+UPDATE lyfter_car_rental.rents
+SET status = 'Complete'
+WHERE vehicule_id = 3;
+COMMIT;
+
+Query#g
+
+UPDATE lyfter_car_rental.vehicules
+SET status = 'Unavailable'
+WHERE id = 13
+
+Query#h
+
+SELECT * FROM lyfter_car_rental.vehicules
+WHERE vehicules.status = 'rented'
+
+SELECT * FROM lyfter_car_rental.vehicules
+WHERE vehicules.status = 'available'
+
+PARTE 3: Creación del API
+a. Creación
+i. crear un usuario nuevo
+
+http://localhost:5000/users
+
+{
+    "user_name": "Michelle Barrantes",
+    "e_mail":"Michelle@example.com",
+    "username":"Peliroja",
+    "pass": "8745",
+    "date_of_birth": "1994-03-24",
+    "status": "activo"
+}
+
+{
+    "user_name": "Jose Antonio",
+    "e_mail":"JoseA@example.com",
+    "username":"Toño",
+    "pass": "7856",
+    "date_of_birth": "1974-09-21",
+    "status": "activo"
+}
+
+ii.Crear un automovil nuevo
+
+
+http://localhost:5000/vehicles
+
+{
+    "brand": "Toyota",
+    "model":"Tacoma",
+    "year_of_creation":"2022",
+    "status": "available"
+}
+
+{
+    "brand": "Toyota",
+    "model":"Tundra",
+    "year_of_creation":"2023",
+    "status": "available"
+}
+
+{
+    "brand": "Ford",
+    "model":"f150",
+    "year_of_creation":"2019",
+    "status": "available"
+}
+
+
+iii. Crear un alquiler nuevo
+
+http://localhost:5000/rents
+
+{
+    "customer_id": 21,
+    "vehicule_id": 13,
+    "status": "renturn"
+}
+
+{
+    "customer_id": 33,
+    "vehicule_id": 14,
+    "status": "rented"
+}
+
+{
+    "customer_id": 45,
+    "vehicule_id": 15,
+    "status": "rented"
+}
+
+b. Modificación
+
+i. Cambiar el estado de un automovil
+
+
+http://localhost:5000/vehicles/1
+
+{
+    "status":"maintenance"   
+}
+
+ii. cambiar el estado de un usuario
+
+http://localhost:5000/users/32
+
+{
+    "status":"inactive"   
+}
+
+iii. Completar un alquiler
+
+http://localhost:5000/rents/4
+
+{
+    "status":"complete"   
+}
+
+iv. Cambiar el estado de un alquiler
+
+http://localhost:5000/rents/8
+
+{
+    "status":"rented"   
+}
+
+V. Flagear un usuario como moroso
+
+http://localhost:5000/users/49
+
+{
+    "status":"Defaulter"   
+}
+
+c. listado
+
+i. listar todos los usuarios
+http://localhost:5000/users
+
+ii. listar todos los automoviles
+http://localhost:5000/vehicules
+
+iii. listar todos los alquileres
+http://localhost:5000/rents
+
+iv. Aceptar filtros
+
+http://localhost:5000/rents/filter?status=rented
+
+http://localhost:5000/rents/filter?date_of_register=2025-05-27
+
+http://localhost:5000/rents/filter?vehicule_id=11
+
+http://localhost:5000/rents/filter?customer_id=8
+
+http://localhost:5000/vehicles/filter?brand=Toyota
+
+http://localhost:5000/vehicles/filter?model=Sentra
+
+http://localhost:5000/vehicles/filter?year_of_creation=2015
+
+http://localhost:5000/vehicles/filter?status=Maintenance
+
+http://localhost:5000/users/filter?status=banned
+
+http://localhost:5000/users/filter?date_of_birth=1988-07-31
+
+http://localhost:5000/users/filter?username=ntorres50
+
+http://localhost:5000/users/filter?e_mail=franco.medina49@example.com
+
+http://localhost:5000/users/filter?user_name=Gael Rojas
+
+
