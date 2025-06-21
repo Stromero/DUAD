@@ -1,0 +1,174 @@
+CREATE TABLE Products (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+code VARCHAR(25) NOT NULL,
+name VARCHAR(25) NOT NULL,
+price INT NOT NULL,
+date_register TIMESTAMP,
+brand VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE Invoice (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+number_of_invoce INT NOT NULL,
+date_of_adquisition TIMESTAMP,
+e_mail VARCHAR(25) NOT NULL,
+total_amount INT NOT NULL
+);
+
+CREATE TABLE Products_invoice (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+amount_of_product INT NOT NULL,
+total_amount INT NOT NULL,
+product_id INT REFERENCES Products(id),
+invoice_id INT REFERENCES Invoice(id)
+);
+
+CREATE TABLE Cart (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+e_mail VARCHAR(25) NOT NULL,
+product_id INT REFERENCES Products(id)
+);
+
+CREATE TABLE Product_cart (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+product_id INT REFERENCES Products(id),
+cart_id INT REFERENCES Cart(id)
+);
+
+ALTER TABLE Invoice
+    ADD COLUMN phone_number VARCHAR(25) NOT NULL DEFAULT 'Phone N/A';
+
+ALTER TABLE Invoice
+    ADD COLUMN id_employee INT NOT NULL DEFAULT 0;
+
+INSERT INTO Products (code, name, price,date_register,brand) 
+	VALUES ('1Q2W3E','Taladro', 23.500,'2022-05-08 14:30:45','Dewalt');
+
+INSERT INTO Products (code, name, price,date_register,brand) 
+	VALUES ('1Qu78d','Llanta', 32.990,'2023-02-19 13:31:23','Firestone');
+
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('A1X9F3', 'Smartphone Android 6.5"', 189.99, '2023-03-12 14:23:11', 'Samsung');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('B4Z8H2', 'Laptop 14" Full HD', 549.50, '2023-06-22 10:18:45', 'Lenovo');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('M3L7C2', 'Auriculares Bluetooth', 29.90, '2023-08-01 16:44:32', 'JBL');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('Q7T1U9', 'Teclado Mecánico RGB', 59.99, '2023-09-14 11:25:19', 'Redragon');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('D6W5E3', 'Monitor 24" LED FHD', 129.99, '2024-01-08 09:12:47', 'LG');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('H2N8K4', 'Silla Gamer Ergonómica', 199.95, '2023-05-10 17:09:22', 'Cougar');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('K9R3T5', 'Smartwatch Deportivo', 89.00, '2024-03-18 08:45:33', 'Amazfit');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('E4V7S1', 'Disco Duro 1TB', 52.75, '2023-04-30 12:37:14', 'Western Digital');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('U3P9O8', 'Tarjeta SD 128GB', 17.49, '2023-11-05 13:29:59', 'SanDisk');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('Z1X2C3', 'Tablet 10.1" 64GB', 112.00, '2023-07-19 15:22:10', 'Huawei');
+
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('J8M4N2', 'Impresora Multifuncional WiFi', 78.99, '2024-02-26 11:14:21', 'HP');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('F6A1R9', 'Parlante Inteligente', 44.90, '2024-04-10 14:03:56', 'Google');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('S5L3E7', 'Cámara de Seguridad WiFi', 38.75, '2023-10-27 16:18:09', 'TP-Link');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('W1D2R5', 'Controlador de Juegos Inalámbrico', 41.60, '2023-12-13 19:45:00', 'Xbox');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('N2V6H8', 'Cargador Rápido USB-C', 14.99, '2023-09-04 09:50:13', 'Anker');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('P5Q8L4', 'Router Dual Band', 63.00, '2023-06-15 13:19:48', 'TP-Link');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('L9T1X7', 'Mochila para Laptop 15"', 26.80, '2023-08-09 18:30:22', 'Samsonite');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('C3B7M0', 'Webcam Full HD 1080p', 36.99, '2024-01-21 10:10:44', 'Logitech');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('R7S6F3', 'Cafetera Programable', 49.95, '2023-11-28 07:12:36', 'Hamilton Beach');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('X0K3Z9', 'Batería Externa 20000mAh', 35.00, '2023-03-07 15:00:00', 'Xiaomi');
+
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('V1G5N6', 'Mouse Inalámbrico Ergonomico', 19.89, '2024-03-03 14:12:00', 'Logitech');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('Y2H8A4', 'Set de Audífonos con Micrófono', 22.30, '2024-04-08 10:41:11', 'Sony');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('T8L6O1', 'Lámpara LED Escritorio', 18.50, '2023-07-25 20:18:00', 'Philips');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('I4E9M7', 'Kit Teclado + Mouse Inalámbrico', 34.20, '2023-10-01 08:22:00', 'Microsoft');
+INSERT INTO Products (code, name, price, date_register, brand) VALUES ('G2D1K5', 'Repetidor WiFi 300Mbps', 16.40, '2024-01-30 09:59:00', 'TP-Link');
+
+UPDATE Products SET price = 15490.25 WHERE code = 'A1X9F3';
+UPDATE Products SET price = 239900.00 WHERE code = 'B4Z8H2';
+UPDATE Products SET price = 18350.75 WHERE code = 'M3L7C2';
+UPDATE Products SET price = 129990.99 WHERE code = 'Q7T1U9';
+UPDATE Products SET price = 56800.00 WHERE code = 'D6W5E3';
+UPDATE Products SET price = 20999.00 WHERE code = 'H2N8K4';
+UPDATE Products SET price = 87500.50 WHERE code = 'K9R3T5';
+UPDATE Products SET price = 103400.00 WHERE code = 'E4V7S1';
+UPDATE Products SET price = 111000.00 WHERE code = 'U3P9O8';
+UPDATE Products SET price = 99000.00 WHERE code = 'Z1X2C3';
+
+UPDATE Products SET price = 112000.00 WHERE code = 'J8M4N2';
+UPDATE Products SET price = 249999.99 WHERE code = 'F6A1R9';
+UPDATE Products SET price = 19500.00 WHERE code = 'S5L3E7';
+UPDATE Products SET price = 148000.00 WHERE code = 'W1D2R5';
+UPDATE Products SET price = 71500.00 WHERE code = 'N2V6H8';
+UPDATE Products SET price = 100300.00 WHERE code = 'P5Q8L4';
+UPDATE Products SET price = 25100.00 WHERE code = 'L9T1X7';
+UPDATE Products SET price = 76000.00 WHERE code = 'C3B7M0';
+UPDATE Products SET price = 228000.00 WHERE code = 'R7S6F3';
+UPDATE Products SET price = 204999.99 WHERE code = 'X0K3Z9';
+
+UPDATE Products SET price = 30000.00 WHERE code = 'V1G5N6';
+UPDATE Products SET price = 44500.00 WHERE code = 'Y2H8A4';
+UPDATE Products SET price = 123000.00 WHERE code = 'T8L6O1';
+UPDATE Products SET price = 109990.00 WHERE code = 'I4E9M7';
+UPDATE Products SET price = 10000.00 WHERE code = 'G2D1K5';
+
+INSERT INTO Invoice (number_of_invoce, date_of_adquisition, e_mail, total_amount, phone_number, id_employee) VALUES
+('5832', '2023-01-14 10:35:00', 'maria.gomez@example.com', 10235.50, '5021-3487', 4),
+('9271', '2023-02-08 12:20:00', 'john.doe@fakemail.com', 78400.00, '4382-1920', 7),
+('3157', '2023-03-11 09:45:00', 'carla.perez@demo.net', 119876.99, '2910-4573', 2),
+('4769', '2023-04-17 16:10:00', 'emilio.rojas@dummy.org', 45890.25, '2430-3850', 6),
+('8402', '2023-05-01 14:00:00', 'lucia.valdez@fakemail.com', 229000.00, '2049-2918', 3),
+('7094', '2023-06-09 08:30:00', 'susan.martinez@example.org', 15000.75, '5566-3344', 1),
+('1680', '2023-07-22 19:20:00', 'javier.luna@correo.com', 98000.00, '6321-0909', 5),
+('4820', '2023-08-30 13:50:00', 'natalia.ramos@correo.net', 170000.45, '2390-4456', 10),
+('6039', '2023-09-05 11:10:00', 'kevin.ramirez@mailservice.com', 36500.30, '4120-8383', 2),
+('1594', '2023-10-12 15:00:00', 'patricia.lopez@fake.org', 100500.00, '7870-2231', 7),
+('3927', '2023-11-03 10:00:00', 'raul.vargas@demo.org', 59000.99, '1234-5678', 8),
+('7648', '2023-11-27 17:45:00', 'angelica.torres@example.com', 225000.00, '7750-9988', 6),
+('8430', '2023-12-15 09:25:00', 'daniel.cruz@fakemail.com', 20450.00, '6210-3030', 4),
+('2197', '2024-01-10 08:15:00', 'monica.diaz@prueba.org', 212000.25, '3930-1818', 9),
+('3745', '2024-02-28 18:30:00', 'carlos.mendoza@correo.com', 74500.40, '5555-6666', 1),
+('9462', '2024-03-14 14:10:00', 'veronica.fernandez@fake.com', 110000.00, '8888-9999', 10),
+('6581', '2024-04-05 11:55:00', 'jorge.soto@example.net', 134000.60, '2222-4444', 3),
+('5043', '2024-04-18 20:40:00', 'laura.rios@mail.org', 101000.00, '6666-1111', 5),
+('8216', '2024-05-09 12:25:00', 'felipe.garcia@correo.net', 249999.99, '8881-5522', 8),
+('2907', '2024-05-11 09:00:00', 'yesenia.castro@demo.com', 149990.00, '7312-0000', 6);
+
+INSERT INTO Products_invoice (amount_of_product,total_amount,product_id,invoice_id)
+VALUES (2,47000,1,2)
+
+
+INSERT INTO Products_invoice (amount_of_product,total_amount,product_id,invoice_id)
+VALUES (1,23500,1,3)
+
+INSERT INTO Products_invoice (amount_of_product,total_amount,product_id,invoice_id)
+VALUES (3,30000,27,4)
+
+INSERT INTO Products_invoice (amount_of_product,total_amount,product_id,invoice_id)
+VALUES (1,10000,27,5)
+
+INSERT INTO Products_invoice (amount_of_product,total_amount,product_id,invoice_id)
+VALUES (2,259981.98,6,6)
+
+INSERT INTO Products_invoice (amount_of_product,total_amount,product_id,invoice_id)
+VALUES (1,20999,8,7)
+
+INSERT INTO Products_invoice (amount_of_product,total_amount,product_id,invoice_id)
+VALUES (2,41998,8,8)
+
+INSERT INTO Products_invoice (amount_of_product,total_amount,product_id,invoice_id)
+VALUES (1,76000,20,9)
+
+
+Select * from Products
+
+Select * from Products
+WHERE price > 50000
+
+SELECT * from Products_invoice
+where product_id = 27
+
+SELECT SUM(total_amount)
+FROM Products_invoice
+WHERE product_id = 8
+
+SELECT * from Invoice
+where e_mail = 'patricia.lopez@fake.org';
+
+SELECT * from Invoice
+ORDER BY total_amount DESC;
+
+Select * from Invoice 
+WHERE number_of_invoce = 8546
+
