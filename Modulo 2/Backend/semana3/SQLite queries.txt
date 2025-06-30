@@ -1,0 +1,51 @@
+CREATE TABLE Products (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+code VARCHAR(25) NOT NULL,
+name VARCHAR(25) NOT NULL,
+price INT NOT NULL,
+date_register TIMESTAMP,
+brand VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE Invoice (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+number_of_invoce INT NOT NULL,
+date_of_adquisition TIMESTAMP,
+e_mail VARCHAR(25) NOT NULL,
+total_amount INT NOT NULL
+);
+
+CREATE TABLE Products_invoice (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+amount_of_product INT NOT NULL,
+total_amount INT NOT NULL,
+product_id INT REFERENCES Products(id),
+invoice_id INT REFERENCES Invoice(id)
+);
+
+CREATE TABLE Cart (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+e_mail VARCHAR(25) NOT NULL,
+product_id INT REFERENCES Products(id)
+);
+a. Select * from Products
+
+b. Select * from Products
+	WHERE price > 50000
+
+c. SELECT * from Products_invoice
+	where product_id = 27
+
+d. SELECT SUM(total_amount)
+	FROM Products_invoice
+	WHERE product_id = 8
+
+e. SELECT * from Invoice
+	where e_mail = 'patricia.lopez@fake.org';
+
+f. SELECT * from Invoice
+	ORDER BY total_amount DESC;
+
+g. Select * from Invoice 
+	WHERE number_of_invoce = 8546
+
