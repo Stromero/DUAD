@@ -1,0 +1,194 @@
+from flask import Flask, request, jsonify, Response
+import json
+from db import DB_Manager
+import jwt
+
+app = Flask("user-service")
+
+@app.route("/liveness")
+def liveness():
+    return "<p>Hello, World!</p>"
+
+
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.get_json() # data is empty
+    if(data.get('username') == None or data.get('password') == None):
+        return Response(status=400)
+    else:
+        result = DB_Manager.insert_user(data.get('username'), data.get('password'))
+        user_id = result[0]
+
+        token = jwt.encode({'id': user_id})
+
+        return jsonify(token=token)
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json() # data is empty
+    if(data.get('username') == None or data.get('password') == None):
+        return Response (status=400)
+    else:
+        result = DB_Manager.get_user(data.get('username'), data.get('password'))
+
+        if(result == None):
+            return Response(status=403)
+        else:
+            user_id = result[0]
+            token = jwt.encode({'id':user_id})
+
+            return jsonify(token=token)
+
+@app.route('/me')
+def me():
+    try:
+        token = request.headers.get('Authorization')
+        if(token is not None):
+            token = token.replace('Bearer','')
+            decoded = jwt.decode(token)
+            user_id = decoded['id']
+            user = DB_Manager.get_user_by_id(user_id)
+            return jsonify(id=user_id, username=user[1])
+        else:
+            return Response(status=403)
+    except Exception as e:
+        return Response(status=500)
+
+if __name__ == "__main__":
+     app.run(host="localhost",debug=True)
+
+*************************************************************************************
+
+from db import DB_Manager
+from jwebt import JWT_Manager
+from flask import Flask, request, Response, jsonify
+
+
+app = Flask("user-service")
+db_manager = DB_Manager()
+jwt_manager = JWT_Manager('habitosatomicos', 'HS256')
+
+
+@app.route("/liveness")
+def liveness():
+    return "<p>Hello, World!</p>"
+
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.get_json()  # data is empty
+    if(data.get('username') == None or data.get('password') == None):
+        return Response(status=400)
+    else:
+        result = db_manager.insert_user(data.get('username'), data.get('password'))
+        user_id = result[0]
+
+        token = jwt_manager.encode({'id':user_id})
+        
+        return jsonify(token=token)
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()  # data is empty
+    if(data.get('username') == None or data.get('password') == None):
+        return Response(status=400)
+    else:
+        result = db_manager.get_user(data.get('username'), data.get('password'))
+
+        if(result == None):
+            return Response(status=403)
+        else:
+            user_id = result[0]
+            token = jwt_manager.encode({'id':user_id})
+        
+            return jsonify(token=token)
+
+@app.route('/me')
+def me():
+    try:
+        token = request.headers.get('Authorization')
+        if(token is not None):
+            test = token.replace("Bearer ","")
+            print(test)
+            decoded = jwt_manager.decode(test)
+            user_id = decoded['id']
+
+            user = db_manager.get_user_by_id(user_id)
+
+            return jsonify(id=user_id, username=user[1])
+        else:
+            return Response(status=403)
+    except Exception as e:
+        return Response(status=500)
+
+if __name__ == "__main__":
+    app.run(host="localhost",debug=True)
+
+
+
+http://localhost:5000/liveness
+
+
+{
+    "name":"Manzana",
+    "price": 600,
+    "date_of_entry": "02-07-2025",
+    "quantity": 10
+}
+
+{ 
+    "name":"Piña",
+    "price": 9500,
+    "date_of_entry": "01-07-2025",
+    "quantity": 15
+}
+
+{
+     "name":"Aguacate hash",
+    "price": 1200,
+    "date_of_entry": "01-07-2025",
+    "quantity": 20   
+}
+
+{
+     "name":"Sandia",
+    "price": 800,
+    "date_of_entry": "28-06-2025",
+    "quantity": 15   
+}
+
+{
+     "name":"Banano",
+    "price": 750,
+    "date_of_entry": "02-06-2025",
+    "quantity": 20   
+}
+
+
+statement = (
+    Update(user_table).where(user_table.c.name == "Steven").values(lastname="Morera")
+)
+with engine.connect() as conn:
+    result = conn.execute(statement)
+    conn.commit()
+
+
+{
+    "code":"2ty4ju87",
+    "date_of_register": "02-07-2025",
+    "total_amount": 2300,
+    "id_user": 2,
+    "id_product": 1
+}
+
+{
+    "username":"Steven",
+    "password":"Stromero123"
+}
+
+
+{
+  "product_id": 1,
+  "code": "ORD005",
+  "date_of_register": "2025-07-12",
+  "total_amount": 800
+}
