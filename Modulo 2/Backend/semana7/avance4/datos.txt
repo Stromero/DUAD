@@ -1,0 +1,281 @@
+Insert users
+{
+    "name":"Steven",
+    "date_of_birth": "03-22-1993",
+    "date_of_register": "08-01-2025",
+    "e_mail":"steven@example.com",
+    "password":"steven123@",
+    "phone_number":"1234-5678",
+    "address":"Alajuela"
+
+},
+{
+    "name":"Celeste",
+    "date_of_birth": "01-12-2000",
+    "date_of_register": "07-31-2025",
+    "e_mail":"celeste@example.com",
+    "password":"celeste123@",
+    "phone_number":"1122-3344",
+    "address":"Heredia"
+
+},
+{
+    "name":"Jose Antonio",
+    "date_of_birth": "09-21-1954",
+    "date_of_register": "08-01-2025",
+    "e_mail":"joseantonio@example.com",
+    "password":"josea123@",
+    "phone_number":"1234-1234",
+    "address":"Alajuela"
+
+},
+{
+    "name":"Carmen",
+    "date_of_birth": "10-02-1954",
+    "date_of_register": "08-01-2025",
+    "e_mail":"carmen@example.com",
+    "password":"carmen123@",
+    "phone_number":"4321-9876",
+    "address":"Alajuela"
+
+},
+{
+    "name":"Alex",
+    "date_of_birth": "06-16-1976",
+    "date_of_register": "08-01-2025",
+    "e_mail":"alex@example.com",
+    "password":"alex123@",
+    "phone_number":"5768-9867",
+    "address":"Alajuela"
+
+},
+{
+    "name":"Estefany",
+    "date_of_birth": "12-09-1985",
+    "date_of_register": "08-01-2025",
+    "e_mail":"estefany@example.com",
+    "password":"estefay123@",
+    "phone_number":"5768-1234",
+    "address":"Alajuela"
+
+}
+
+Insert Rolls
+
+{
+	"description":"admin"
+},
+{
+	"description":"cliente"
+}
+
+Insert roll to users
+
+{
+    "id_user": 1,
+    "id_rol":1
+},
+{
+    "id_user": 1,
+    "id_rol":3
+},
+{
+    "id_user": 2,
+    "id_rol":1
+},
+{
+    "id_user": 2,
+    "id_rol":3
+}
+
+
+Insert Brand
+
+{
+    "description": "Bayer"
+},
+{
+    "description": "Purina"
+},
+{
+    "description": "Pro plan"
+},
+{
+    "description": "Dog chow"
+},
+{
+    "description": "Cat chow"
+},
+{
+    "description": "Purina one"
+}
+
+Insert Type
+
+{
+    "description": "Alimento"
+},
+{
+    "description": "Alimento seco"
+},
+{
+    "description": "Vacuna"
+},
+{
+    "description": "Pastillas"
+},
+{
+    "description": "Gotas"
+},
+{
+    "description": "Correa"
+}
+
+Insert Product
+{
+    "code": "wy8h98",
+    "Price": 1500,
+    "date_of_register": "08-04-2025",
+    "id_brand": 1,
+    "id_type": 2
+},
+{
+    "code": "8uyi0i",
+    "Price": 2700,
+    "date_of_register": "08-04-2025",
+    "id_brand": 2,
+    "id_type": 3
+},
+{
+    "code": "8u8i9",
+    "Price": 3500,
+    "date_of_register": "08-04-2025",
+    "id_brand": 3,
+    "id_type": 4
+}
+
+Insert Invoice
+
+{
+    "code": "a1c2v",
+    "date_of_register": "08-04-2025",
+    "id_user": 1
+},
+{
+    "code": "jgh889",
+    "date_of_register": "08-04-2025",
+    "id_user": 2
+}
+
+Register product invoice
+
+{
+    "id_invoice": 1,
+    "id_product": 2
+},
+{
+    "id_invoice": 2,
+    "id_product": 1
+}
+
+05-Agosto-2025
+
+1.realizar la inserción manual en PostgreSQL
+
+INSERT INTO public.users(
+	id, name, date_of_birth, date_of_register, e_mail, password, phone_number, address)
+	VALUES (1, 'Steven Romero', '1993-03-22', '2025-08-05','admin@example.com', 'testpass', '555-1234', 'Barrio Monserrat');
+
+INSERT INTO public.rolls(
+	id, description)
+	VALUES (1, 'admin');
+
+INSERT INTO public.rolls_users(
+	id, id_user, id_rol)
+	VALUES (1,1,1);
+
+
+
+{
+  "name": "María Celeste",
+  "date_of_birth": "1999-01-12",
+  "e_mail": "celeste@example.com",
+  "password": "celeste123",
+  "phone_number": "666-5678",
+  "address": "Calle loria"
+},
+{
+  "name": "Jorge",
+  "date_of_birth": "1996-02-26",
+  "e_mail": "jorge@gmail.com",
+  "password": "jorge123",
+  "phone_number": "666-6688",
+  "address": "Heredia"
+}
+
+{
+    "id_user": 2,
+    "id_rol": 1
+},
+{
+    "id_user": 2,
+    "id_rol": 2
+},
+{
+    "id_user": 3,
+    "id_rol": 2
+},
+{
+    "id_user":3
+},
+
+{
+    "description":"Pro plan"
+},
+}   
+    "description": "Pedigree"
+{,
+{
+    "description":"Alimento perro"
+}
+,
+{
+    "description":"juguete"
+},
+{
+    "code":"PR0002",
+    "Price": 3500,
+    "id_brand": 2,
+    "id_type": 2
+},
+{
+    "code":"INV0001",
+    "date_of_register":"08-05-2025",
+    "id_user":2
+},
+{
+    "code":"INV0002",
+    "date_of_register":"08-05-2025",
+    "id_user":3
+}
+
+{
+    "id_invoice":1,
+    "id_product": 1
+}
+
+
+
+
+
+
+
+
+
+{
+    "e_mail":"admin@example.com",
+    "password":"testpass"
+}
+
+
+
