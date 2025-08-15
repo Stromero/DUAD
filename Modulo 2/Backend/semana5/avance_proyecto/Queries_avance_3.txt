@@ -11,7 +11,7 @@ date_of_birth DATE,
 date_of_register DATE,
 e_mail VARCHAR(255),
 phone_number VARCHAR(255),
-address VARCHAR(255),
+address VARCHAR(255),Lo
 PRIMARY KEY(id)
 );
 

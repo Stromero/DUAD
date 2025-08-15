@@ -1,0 +1,121 @@
+1.realizar la inserción manual en PostgreSQL
+
+INSERT INTO public.users(
+	id, name, date_of_birth, date_of_register, e_mail, password, phone_number, address)
+	VALUES (1, 'Steven Romero', '1993-03-22', '2025-08-05','admin@example.com', 'testpass', '555-1234', 'Barrio Monserrat');
+
+INSERT INTO public.rolls(
+	id, description)
+	VALUES (1, 'admin');
+
+INSERT INTO public.rolls_users(
+	id, id_user, id_rol)
+	VALUES (1,1,1);
+
+*** Endpoint Login ***
+{
+    "e_mail":"admin@example.com",
+    "password":"testpass"
+}
+
+*** Endpoint register user ***
+{
+  "name": "María Celeste",
+  "date_of_birth": "1999-01-12",
+  "e_mail": "celeste@example.com",
+  "password": "celeste123",
+  "phone_number": "666-5678",
+  "address": "Calle loria"
+},
+{
+  "name": "Jorge",
+  "date_of_birth": "1996-02-26",
+  "e_mail": "jorge@gmail.com",
+  "password": "jorge123",
+  "phone_number": "666-6688",
+  "address": "Heredia"
+},
+{
+  "name": "Michelle",
+  "date_of_birth": "1994-03-25",
+  "e_mail": "michelle@example.com",
+  "password": "michelle123",
+  "phone_number": "666-5678",
+  "address": "Tambor"
+}
+
+*** Endpoint register rolls
+{
+    "id_user": 2,
+    "id_rol": 1
+},
+{
+    "id_user": 2,
+    "id_rol": 2
+},
+
+*** Endpoint register roll_to_user ***
+{
+    "id_user": 3,
+    "id_rol": 2
+},
+{
+    "id_user":3
+    "id_rol": 2
+},
+
+*** Endpoint register brand ***
+{
+    "description":"Pro plan"
+},
+}   
+    "description": "Pedigree"
+{,
+
+*** Endpoint register type ***
+{
+    "description":"Alimento perro"
+}
+,
+{
+    "description":"juguete"
+},
+
+*** Endpoint register product ***
+{
+    "code":"PR0002",
+    "Price": 3500,
+    "id_brand": 2,
+    "id_type": 2
+},
+
+*** Endpoint register invoice ***
+{
+    "code":"INV0001",
+    "date_of_register":"08-05-2025",
+    "id_user":2
+},
+{
+    "code":"INV0002",
+    "date_of_register":"08-05-2025",
+    "id_user":3
+}
+
+*** Endpoint register product invoice ***
+{
+    "id_invoice":1,
+    "id_product": 1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
