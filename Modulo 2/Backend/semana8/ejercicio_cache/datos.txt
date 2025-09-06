@@ -1,0 +1,14 @@
+{
+    "username":"celeste",
+    "password": "Celeste123"
+}
+
+Frutas
+
+{
+    "name":"Platano maduro",
+    "price": 750,
+    "date_of_entry": "27-08-2025",
+    "quantity": 60
+}
+
