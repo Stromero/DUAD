@@ -68,9 +68,9 @@ INSERT INTO public.rolls_users(
 {
     "description":"Pro plan"
 },
-{
-    "description":"Pedigree"
-}
+}   
+    "description": "Pedigree"
+{,
 
 *** Endpoint register type ***
 {
