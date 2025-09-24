@@ -2,17 +2,20 @@
 from flask import Blueprint, request, jsonify
 from jwebt import jwt_required, admin_required
 from db.db_operations import get_all_invoices_db, create_invoice_db, delete_invoice_db
+from cache import cache_response, invalidate_cache
 
 invoice_bp = Blueprint('invoice', __name__)
 
 @invoice_bp.route("/invoices", methods=["GET"])
 @jwt_required()
+@cache_response("invoices_list", expire=60)
 def get_invoices():
     invoices = get_all_invoices_db()
     return jsonify(invoices), 200
 
 @invoice_bp.route("/invoices", methods=["POST"])
 @admin_required()
+@invalidate_cache(["invoices_list"])
 def register_invoice():
     data = request.get_json()
     required_fields = ["code", "date_of_register", "id_user"]
@@ -28,6 +31,7 @@ def register_invoice():
 
 @invoice_bp.route("/invoices/<int:invoice_id>", methods=["DELETE"])
 @admin_required()
+@invalidate_cache(["invoices_list"])
 def delete_invoice(invoice_id):
     try:
         if delete_invoice_db(invoice_id):

@@ -15,7 +15,8 @@ from routes.brand_routes import brand_bp
 from routes.type_routes import type_bp
 from routes.product_routes import product_bp
 from routes.invoice_routes import invoice_bp
-from routes.product_invoice_routes import product_invoice_bp
+#from routes.product_invoice_routes import product_invoice_bp
+from routes.product_invoice_routes import register_product_invoice_routes
 
 app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = "super-secreta-key-para-jwt"
@@ -31,7 +32,8 @@ app.register_blueprint(brand_bp)
 app.register_blueprint(type_bp)
 app.register_blueprint(product_bp)
 app.register_blueprint(invoice_bp)
-app.register_blueprint(product_invoice_bp)
+#app.register_blueprint(product_invoice_bp)
+register_product_invoice_routes(app)
 
 
 if __name__ == "__main__":
