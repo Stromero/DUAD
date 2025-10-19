@@ -1,0 +1,303 @@
+1.realizar la inserción manual en PostgreSQL
+
+INSERT INTO public.users(
+	id, name, date_of_birth, date_of_register, e_mail, password, phone_number, address)
+	VALUES (1, 'Steven Romero', '1993-03-22', '2025-08-05','admin@example.com', 'testpass', '555-1234', 'Barrio Monserrat');
+
+INSERT INTO public.rolls(
+	id, description)
+	VALUES (1, 'admin');
+
+INSERT INTO public.rolls_users(
+	id, id_user, id_rol)
+	VALUES (1,1,1);
+
+*** Endpoint Login ***
+{
+    "e_mail":"admin@example.com",
+    "password":"testpass"
+}
+
+*** Endpoint register user ***
+{
+  "name": "María Celeste",
+  "date_of_birth": "1999-01-12",
+  "e_mail": "celeste@example.com",
+  "password": "celeste123",
+  "phone_number": "666-5678",
+  "address": "Calle loria"
+},
+{
+  "name": "Jorge",
+  "date_of_birth": "1996-02-26",
+  "e_mail": "jorge@gmail.com",
+  "password": "jorge123",
+  "phone_number": "666-6688",
+  "address": "Heredia"
+},
+{
+  "name": "Michelle",
+  "date_of_birth": "1994-03-25",
+  "e_mail": "michelle@example.com",
+  "password": "michelle123",
+  "phone_number": "666-5678",
+  "address": "Tambor"
+},
+{
+  "name": "Luis",
+  "date_of_birth": "1985-07-26",
+  "e_mail": "luis@gmail.com",
+  "password": "luis123",
+  "phone_number": "666-6688",
+  "address": "San Ramon"
+},
+{
+  "name": "Maria",
+  "date_of_birth": "1985-08-02",
+  "e_mail": "Maria@gmail.com",
+  "password": "maria123",
+  "phone_number": "666-6688",
+  "address": "Heredia"
+},
+{
+  "name": "Jose Antonio",
+  "date_of_birth": "1954-09-21",
+  "e_mail": "Jose@gmail.com",
+  "password": "Jose123",
+  "phone_number": "666-6622",
+  "address": "Cartago"
+},
+{
+  "name": "Sofia",
+  "date_of_birth": "2011-07-14",
+  "e_mail": "Sofia@gmail.com",
+  "password": "Sofia123",
+  "phone_number": "777-6622",
+  "address": "Jaco"
+},
+{
+  "name": "Alex",
+  "date_of_birth": "1975-06-16",
+  "e_mail": "Alex@gmail.com",
+  "password": "Alex123",
+  "phone_number": "777-1256",
+  "address": "Jaco"
+},
+{
+  "name": "Scarleth",
+  "date_of_birth": "2001-10-22",
+  "e_mail": "Scar@gmail.com",
+  "password": "Scar123",
+  "phone_number": "751-8569",
+  "address": "Alajuela"
+}
+
+*** Endpoint register rolls
+{
+    "id_user": 2,
+    "id_rol": 1
+},
+{
+    "id_user": 3,
+    "id_rol": 2
+},
+{
+    "id_user": 4,
+    "id_rol": 2
+},
+{
+    "id_user": 5,
+    "id_rol": 2
+},
+{
+    "id_user": 6,
+    "id_rol": 2
+},
+{
+    "id_user": 8,
+    "id_rol": 1
+},
+{
+    "id_user": 9,
+    "id_rol": 2
+},
+{
+    "id_user": 10,
+    "id_rol": 2
+},
+{
+    "id_user": 11,
+    "id_rol": 2
+},
+{
+    "id_user": 12,
+    "id_rol": 2
+},
+{
+    "id_user": 13,
+    "id_rol": 2
+}
+
+
+*** Endpoint register brand ***
+{
+    "description":"Pro plan"
+},
+}   
+    "description": "Pedigree"
+{,
+}   
+    "description": "Purina"
+{,
+{
+    "description": "Bayer"
+},
+{
+    "description": "VetPlus"
+},
+{
+    "description": "Invesa"
+},
+{
+    "description": "Zoetis"
+},
+{
+    "description": "Kiron"
+},
+{
+    "description": "Halvet"
+},
+{
+    "description": "Pet's Pharma"
+}
+
+
+*** Endpoint register type ***
+{
+    "description":"Alimento perro"
+}
+,
+{
+    "description":"juguete"
+},
+{
+    "description":"Abrigo"
+},
+{
+    "description":"Shampoo"
+},
+{
+    "description":"Vacunas"
+},
+{
+    "description":"Jabon"
+},
+{
+    "description":"Correa"
+},
+{
+    "description":"cortauñas"
+},
+{
+    "description":"Bolsa de desperdicios"
+}
+
+*** Endpoint register product ***
+{
+    "code":"PR0002",
+    "Price": 3500,
+    "id_brand": 2,
+    "id_type": 2
+},
+{
+    "code":"PR0015",
+    "price": 7500,
+    "id_brand": 9,
+    "id_type": 7
+},
+{
+    "code":"PR0016",
+    "price": 17500,
+    "id_brand": 8,
+    "id_type": 2
+},
+{
+    "code":"PR0017",
+    "price": 2500,
+    "id_brand": 5,
+    "id_type": 9
+},
+{
+    "code":"PR0018",
+    "price": 8550,
+    "id_brand": 9,
+    "id_type": 4
+},
+{
+    "code":"PR0019",
+    "price": 18550,
+    "id_brand": 2,
+    "id_type": 6
+},
+{
+    "code":"PR0020",
+    "price": 9525,
+    "id_brand": 7,
+    "id_type": 8
+},
+{
+    "code":"PR0021",
+    "price": 6025,
+    "id_brand": 1,
+    "id_type": 8
+},
+{
+    "code":"PR0022",
+    "price": 3525,
+    "id_brand": 9,
+    "id_type": 4
+},
+{
+    "code":"PR0023",
+    "price": 16225,
+    "id_brand": 3,
+    "id_type": 8
+},
+{
+    "code":"PR0024",
+    "price": 19525,
+    "id_brand": 7,
+    "id_type": 8
+}
+
+
+*** Endpoint register invoice ***
+{
+    "code":"INV0001",
+    "date_of_register":"08-05-2025",
+    "id_user":2
+},
+{
+    "code":"INV0002",
+    "date_of_register":"08-05-2025",
+    "id_user":3
+}
+
+*** Endpoint register product invoice ***
+{
+    "id_invoice":1,
+    "id_product": 1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+# 🐾 E-Commerce Mascotas
+
+API desarrollada con **Flask** y **SQLAlchemy** para la gestión de un sistema de comercio electrónico enfocado en productos para mascotas.  
+Incluye autenticación con **JWT**, control de roles (admin/cliente) y operaciones CRUD sobre las principales entidades del negocio.
+
+---
+
+## 📅 Fecha de creación
+**Octubre 2025**
+
+---
+
+## 🧱 Estructura del proyecto
+
+```bash
+E-Commerce-Mascotas/
+│
+├── app.py                # Punto de entrada principal de la API
+├── db.py                 # Configuración de la conexión con PostgreSQL
+├── jwt.py                # Manejo de autenticación y verificación JWT
+│
+├── models/               # Modelos del ORM
+│   ├── user.py
+│   ├── role.py
+│   ├── product.py
+│   ├── brand.py
+│   ├── type.py
+│   ├── cart.py
+│   ├── invoice.py
+│   └── invoice_product.py
+│
+├── routes/               # Rutas (endpoints)
+│   ├── user_routes.py
+│   ├── product_routes.py
+│   ├── cart_routes.py
+│   ├── invoice_routes.py
+│   └── auth_routes.py
+│
+├── requirements.txt       # Dependencias del proyecto
+└── README.md              # Documentación del proyecto
