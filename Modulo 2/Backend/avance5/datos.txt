@@ -42,6 +42,14 @@ INSERT INTO public.rolls_users(
   "password": "michelle123",
   "phone_number": "666-5678",
   "address": "Tambor"
+},
+{
+  "name": "Luis",
+  "date_of_birth": "1985-07-26",
+  "e_mail": "luis@gmail.com",
+  "password": "luis123",
+  "phone_number": "666-6688",
+  "address": "San Ramon"
 }
 
 *** Endpoint register rolls
@@ -68,9 +76,9 @@ INSERT INTO public.rolls_users(
 {
     "description":"Pro plan"
 },
-{
-    "description":"Pedigree"
-}
+}   
+    "description": "Pedigree"
+{,
 
 *** Endpoint register type ***
 {
@@ -83,8 +91,8 @@ INSERT INTO public.rolls_users(
 
 *** Endpoint register product ***
 {
-    "code":"PR0001",
-    "price": 3500,
+    "code":"PR0002",
+    "Price": 3500,
     "id_brand": 2,
     "id_type": 2
 },

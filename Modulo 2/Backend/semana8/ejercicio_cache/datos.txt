@@ -1,3 +1,9 @@
+***** Usuarios *****
+{
+    "username":"steven",
+    "password":"steven123",
+    "role":"admin"
+}
 {
     "username":"celeste",
     "password": "Celeste123"
@@ -8,7 +14,42 @@ Frutas
 {
     "name":"Platano maduro",
     "price": 750,
-    "date_of_entry": "27-08-2025",
+    "date_of_entry": "08-27-2025",
     "quantity": 60
 }
-
+{
+    "name":"Pitahaya",
+    "price": 2500,
+    "date_of_entry": "08-27-2025",
+    "quantity": 60
+}
+{
+    "name":"fresas",
+    "price":1500,
+    "date_of_entry":"02-07-2025",
+    "quantity":50
+}
+{
+    "name":"banano",
+    "price":1000,
+    "date_of_entry":"03-07-2025",
+    "quantity":60
+}
+{
+    "name":"Mango",
+    "price":500,
+    "date_of_entry":"03-07-2025",
+    "quantity":60
+}
+{
+    "name":"Sandia",
+    "price":650,
+    "date_of_entry":"03-07-2025",
+    "quantity":60
+}
+{
+    "name":"Melocoton",
+    "price":750,
+    "date_of_entry":"03-07-2025",
+    "quantity":60
+}
