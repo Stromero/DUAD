@@ -281,13 +281,137 @@ INSERT INTO public.rolls_users(
     "code":"INV0002",
     "date_of_register":"08-05-2025",
     "id_user":3
+},
+{
+    "code":"INV0012",
+    "date_of_register":"08-06-2025",
+    "id_user":2
+},
+{
+    "code":"INV0013",
+    "date_of_register":"08-07-2025",
+    "id_user":4
+},
+{
+    "code":"INV0014",
+    "date_of_register":"08-08-2025",
+    "id_user":11
+},
+{
+    "code":"INV0015",
+    "date_of_register":"08-09-2025",
+    "id_user":4
+},
+{
+    "code":"INV0016",
+    "date_of_register":"08-10-2025",
+    "id_user":8
+},
+{
+    "code":"INV0017",
+    "date_of_register":"08-11-2025",
+    "id_user":9
+},
+{
+    "code":"INV00018",
+    "date_of_register":"08-12-2025",
+    "id_user":12
+},
+{
+    "code":"INV0019",
+    "date_of_register":"08-13-2025",
+    "id_user":5
+},
+{
+    "code":"INV0020",
+    "date_of_register":"08-14-2025",
+    "id_user":6
+},
+{
+    "code":"INV0021",
+    "date_of_register":"08-15-2025",
+    "id_user":8
+},
+{
+    "code":"INV0022",
+    "date_of_register":"08-16-2025",
+    "id_user":10
+},
+{
+    "code":"INV0023",
+    "date_of_register":"08-17-2025",
+    "id_user":10
+},
+{
+    "code":"INV0024",
+    "date_of_register":"08-18-2025",
+    "id_user":11
+},
+{
+    "code":"INV0025",
+    "date_of_register":"08-19-2025",
+    "id_user":12
+},
+{
+    "code":"INV0026",
+    "date_of_register":"08-20-2025",
+    "id_user":13
 }
 
 *** Endpoint register product invoice ***
 {
     "id_invoice":1,
     "id_product": 1
-}
+},
+
+{
+    "id_invoice":11,
+    "id_product": 5
+},
+{
+    "id_invoice":12,
+    "id_product": 7
+},
+{
+    "id_invoice":13,
+    "id_product": 7
+},
+{
+    "id_invoice":14,
+    "id_product": 10
+},
+{
+    "id_invoice":15,
+    "id_product": 13
+},
+{
+    "id_invoice":16,
+    "id_product": 10
+},
+{
+    "id_invoice":17,
+    "id_product": 17
+},
+{
+    "id_invoice":18,
+    "id_product":20
+},
+{
+    "id_invoice":19,
+    "id_product":21
+},
+{
+    "id_invoice":20,
+    "id_product": 26
+},
+
+
+
+
+
+
+
+
 
 
 

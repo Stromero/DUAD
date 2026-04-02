@@ -6,9 +6,7 @@ list_b = ['Steven','Romero','Software Enginner']
 
 final_dictionary = {}
 
-for key in lits_a:
-    for value in list_b:
-        final_dictionary[key] = value
-
+for key, value in zip(lits_a,list_b):
+    final_dictionary[key] = value
 
 print(f'El resultado final es: {final_dictionary}')
