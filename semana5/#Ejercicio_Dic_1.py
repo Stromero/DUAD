@@ -16,12 +16,12 @@ Diccionario_hotel['habitaciones'] = [
     {
         "numero" : 1,
         "piso" : 1,
-        "precio_por_noche" : "$40",
+        "precio_por_noche" : 40,
     },
     {
         "numero" : 2,
         "piso" : 2,
-        "precio_por_noche" : "$50"
+        "precio_por_noche" : 50
     }
 ]
 

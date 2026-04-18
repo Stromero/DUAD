@@ -20,33 +20,29 @@ o	Descuento = precio_de_producto * 0.10
 •	Definir Segundos_Faltantes
 •	Mostrar “Ingrese tiempo en segundos”
 •	Pedir Tiempo_en_segundos
-•	Si (Tiempo_en_segundos >= 600)
+	Si (Tiempo_en_segundos == 600)
+	Mensaje_final = "Igual"
+•	SinoSi (Tiempo_en_segundos > 600)
 o	Mensaje_final = “Mayor “
 •	Sino 
-o	Segundos_Faltantes =  600 – tiempo_en_segundos
+o	Segundos_Faltantes =  600 – Tiempo_en_segundos
 o	Mensaje_final = “Le faltan ” + Segundos_Faltantes + “Segundos”
 •	FinSi
 •	Mostrar “Mensaje_final”
 •	Fin
 
 
-
-
-
-
-
-
 •	Inicio
 •	Definir Numero_del_usuario
 •	Definir Suma = 0
-•	Definir Contador = 0
+•	Definir Contador = 1
 •	Definir ContadorAuxiliar
 •	Mostrar “Ingrese un numero”
 •	Pedir Numero_del_usuario
-•	Mientras que (Suma <= Numero_del_usuario) repetir
+•	Mientras que (Contador <= Numero_del_usuario) repetir
 o	Suma = Suma + Contador
 o	ContadorAuxiliar = Contador
 o	Contador = Contador + 1  
 •	FinMientras
-•	Mostrar  “ la suma de los números hasta el numero ingresado desde 1 es : ContadorAuxiliar 
+•	Mostrar  “la suma de los números hasta el numero ingresado desde 1 es : ContadorAuxiliar 
 •	Fin
