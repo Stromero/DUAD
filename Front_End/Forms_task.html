@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votaciones</title>
+</head>
+<body>
+    <h1>Welcome to the elections for the next president of the country!</h1>
+    <p>Please fill up with your personal information and them select the candidate or candidates of your preferences</p>
+    <form action="">
+        <label for="userName">Provide your name:</label><br>
+        <input type="text" id="userName" name="userName"><br>
+        <label for="userEmail">Provide you e-mail:</label><br>
+        <input type="text" id="userEmail" name="userEmail"><br>
+        <label for="userIDNumber">Provide you identification number:</label><br>
+        <input type="text" id="userIDNumber" name="userIDNumber"><br>
+        <label for="userPhoneNumber">Provide you phone number:</label><br>
+        <input type="text" id="userPhoneNumber" name="userPhoneNumber"><br>
+        <label for="chooseCandidate">Select a candidate or candidates of your preferences:</label>
+        <br>
+        <br>
+        <input type="checkbox" name="candidate1" id="candidate1" value="John Wick">
+        <label for="candidate1">John wick</label><br>
+        <input type="checkbox" name="candidate2" id="candidate2" value="Dwayne Johnson">
+        <label for="candidate2">Dwayne Johnson</label><br>
+        <input type="checkbox" name="candidate3" id="candidate3" value="Josh Brolin">
+        <label for="candidate3">Josh Brolin</label><br>
+        <br>
+        <input type="button" onclick="window.location.href='confirmation_vote.html'" value="Submit vote"> 
+    </form>
+</body>
+</html>
