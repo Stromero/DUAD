@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitud de Empleo</title>
+    <link rel="stylesheet" href="styles_1.css">
+</head>
+<body>
+    <h1>Solicitud de Empleo</h1>
+
+    <form>
+        
+        <h2>Información General</h2>
+        <label>Fecha:</label>
+        <input type="date" name="fecha">
+
+        <label>Puesto solicitado:</label>
+        <input type="text" name="puesto">
+
+        <label>Sueldo deseado:</label>
+        <input type="text" name="sueldo">
+
+        <!-- Datos Personales -->
+        <h2>Datos Personales</h2>
+        <label>Apellido paterno:</label>
+        <input type="text" name="apellido_paterno">
+
+        <label>Apellido materno:</label>
+        <input type="text" name="apellido_materno">
+
+        <label>Nombres:</label>
+        <input type="text" name="nombres">
+
+        <label>Edad:</label>
+        <input type="number" name="edad">
+
+        <label>Domicilio:</label>
+        <input type="text" name="domicilio">
+
+        <label>Colonia:</label>
+        <input type="text" name="colonia">
+
+        <label>Código postal:</label>
+        <input type="text" name="codigo_postal">
+
+        <label>Teléfono:</label>
+        <input type="text" name="telefono">
+
+        <label>Móvil:</label>
+        <input type="text" name="movil">
+
+        <label>Lugar de nacimiento:</label>
+        <input type="text" name="lugar_nacimiento">
+
+        <label>Fecha de nacimiento:</label>
+        <input type="date" name="fecha_nacimiento">
+
+        <label>Nacionalidad:</label>
+        <input type="text" name="nacionalidad">
+
+        <label>Sexo:</label>
+        <input type="radio" name="sexo" value="masculino"> Masculino
+        <input type="radio" name="sexo" value="femenino"> Femenino
+        <div class="seccion-cuadrado">
+        <label>Vive con:</label>
+        <input type="checkbox" name="vive_con" value="padres"> Padres
+        <input type="checkbox" name="vive_con" value="familiares"> Familiares
+        <input type="checkbox" name="vive_con" value="parientes"> Parientes
+        <input type="checkbox" name="vive_con" value="amigos"> Amigos
+        <input type="checkbox" name="vive_con" value="solo"> Solo
+        </div> 
+        <label>Estatura:</label>
+        <input type="text" name="estatura">
+
+        <label>Peso:</label>
+        <input type="text" name="peso">
+        <div class="seccion-cuadrado">
+        <label>Personas que dependen de usted:</label>
+        <input type="checkbox" name="dependientes" value="hijos"> Hijos
+        <input type="checkbox" name="dependientes" value="conyuge"> Cónyuge
+        <input type="checkbox" name="dependientes" value="padres"> Padres
+        <input type="checkbox" name="dependientes" value="otros"> Otros
+        </div>
+        <label>Estado civil:</label>
+        <input type="radio" name="estado_civil" value="soltero"> Soltero
+        <input type="radio" name="estado_civil" value="casado"> Casado
+        <input type="radio" name="estado_civil" value="otro"> Otro
+
+        
+        <h2>Documentación</h2>
+        <label>Número de CURP:</label>
+        <input type="text" name="curp">
+
+        <label>Número de cartilla servicio militar:</label>
+        <input type="text" name="cartilla">
+
+        <label>Número de pasaporte:</label>
+        <input type="text" name="pasaporte">
+
+        <label>Licencia de manejo:</label>
+        <input type="radio" name="licencia" value="si"> Sí
+        <input type="radio" name="licencia" value="no"> No
+
+        <label>Tipo de licencia y número:</label>
+        <input type="text" name="tipo_licencia">
+
+        <label>Si es extranjero, adjunte documentación:</label>
+        <input type="text" name="documentacion_extranjero">
+
+        
+        <h2>Hábitos Personales</h2>
+        <label>¿Cómo considera su estado de salud?</label>
+        <input type="radio" name="salud" value="buena"> Buena
+        <input type="radio" name="salud" value="regular"> Regular
+        <input type="radio" name="salud" value="mala"> Mala
+
+        <label>¿Padece alguna enfermedad crónica?</label>
+        <input type="radio" name="enfermedad" value="no"> No
+        <input type="radio" name="enfermedad" value="si"> Sí
+        <label>¿Cuál?</label>
+        <input type="text" name="cual_enfermedad">
+
+        <label>¿Practica algún deporte?</label>
+        <input type="text" name="deporte">
+
+        <label>Pasatiempo favorito:</label>
+        <input type="text" name="pasatiempo">
+
+        <h2>Datos Familiares</h2>
+        <label>Padre - Nombre:</label>
+        <input type="text" name="padre_nombre">
+        <label>Padre - Estado:</label>
+        <input type="radio" name="padre_estado" value="vivo"> Vivo
+        <input type="radio" name="padre_estado" value="finado"> Finado
+        <label>Padre - Domicilio:</label>
+        <input type="text" name="padre_domicilio">
+        <label>Padre - Ocupación:</label>
+        <input type="text" name="padre_ocupacion">
+
+        <label>Madre - Nombre:</label>
+        <input type="text" name="madre_nombre">
+        <label>Madre - Estado:</label>
+        <input type="radio" name="madre_estado" value="vivo"> Vivo
+        <input type="radio" name="madre_estado" value="finado"> Finado
+        <label>Madre - Domicilio:</label>
+        <input type="text" name="madre_domicilio">
+        <label>Madre - Ocupación:</label>
+        <input type="text" name="madre_ocupacion">
+
+        <label>Esposo(a) - Nombre:</label>
+        <input type="text" name="esposo_nombre">
+        <label>Esposo(a) - Estado:</label>
+        <input type="radio" name="esposo_estado" value="vivo"> Vivo
+        <input type="radio" name="esposo_estado" value="finado"> Finado
+        <label>Esposo(a) - Domicilio:</label>
+        <input type="text" name="esposo_domicilio">
+        <label>Esposo(a) - Ocupación:</label>
+        <input type="text" name="esposo_ocupacion">
+
+        <label>Nombres de los hijos:</label>
+        <textarea name="hijos"></textarea>
+
+        <h2>Escolaridad</h2>
+        <label>Primaria - Escuela o instituto:</label>
+        <input type="text" name="primaria_escuela">
+        <label>Domicilio:</label>
+        <input type="text" name="primaria_domicilio">
+        <label>Fecha de inicio:</label>
+        <input type="date" name="primaria_inicio">
+        <label>Fecha de término:</label>
+        <input type="date" name="primaria_fin">
+        <label>Certificado:</label>
+        <input type="text" name="primaria_certificado">
+
+        <label>Secundaria - Escuela o instituto:</label>
+        <input type="text" name="secundaria_escuela">
+        <label>Domicilio:</label>
+        <input type="text" name="secundaria_domicilio">
+        <label>Fecha de inicio:</label>
+        <input type="date" name="secundaria_inicio">
+        <label>Fecha de término:</label>
+        <input type="date" name="secundaria_fin">
+        <label>Certificado:</label>
+        <input type="text" name="secundaria_certificado">
+
+        <label>Preparatoria/Vocacional - Escuela o instituto:</label>
+        <input type="text" name="preparatoria_escuela">
+        <label>Domicilio:</label>
+        <input type="text" name="preparatoria_domicilio">
+        <label>Fecha de inicio:</label>
+        <input type="date" name="preparatoria_inicio">
+        <label>Fecha de término:</label>
+        <input type="date" name="preparatoria_fin">
+        <label>Certificado:</label>
+        <input type="text" name="preparatoria_certificado">
+
+        <label>Profesional - Escuela o instituto:</label>
+        <input type="text" name="profesional_escuela">
+        <label>Domicilio:</label>
+        <input type="text" name="profesional_domicilio">
+        <label>Fecha de inicio:</label>
+        <input type="date" name="profesional_inicio">
+        <label>Fecha de término:</label>
+        <input type="date" name="profesional_fin">
+        <label>Certificado:</label>
+        <input type="text" name="profesional_certificado">
+
+        <label>Comercial u otras - Escuela o instituto:</label>
+        <input type="text" name="comercial_escuela">
+        <label>Domicilio:</label>
+        <input type="text" name="comercial_domicilio">
+        <label>Fecha de inicio:</label>
+        <input type="date" name="comercial_inicio">
+        <label>Fecha de término:</label>
+        <input type="date" name="comercial_fin">
+        <label>Certificado:</label>
+        <input type="text" name="comercial_certificado">
+
+        
+    </form>
+</body>
+</html>
+
+

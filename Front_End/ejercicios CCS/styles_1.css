@@ -1,0 +1,53 @@
+body {
+    font-family: Arial;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    text-align: center;
+    color: darkblue;
+}
+
+form {
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+h2 {
+    color: darkred;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+input[type="radio"] {
+    width: auto;
+}
+
+input[type="submit"] {
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.seccion-cuadrado {
+    border: 1px solid black;   /* el cuadro */
+    padding: 15px;             /* espacio interno */
+    margin-top: 20px;          /* separación con otras secciones */
+    background-color: #f9f9f9; /* color suave de fondo */
+}
