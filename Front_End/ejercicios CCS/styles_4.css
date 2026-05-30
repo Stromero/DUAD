@@ -1,0 +1,58 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 20px;
+}
+
+/* Contenedor principal en grid */
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 20px; /* espacio entre cards */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Estilo de cada card */
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Imagen */
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+/* Título */
+.card h3 {
+    margin: 10px;
+    color: #333;
+}
+
+/* Texto */
+.card p {
+    margin: 0 10px 10px 10px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Link */
+.card a {
+    margin: 10px;
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 14px;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+

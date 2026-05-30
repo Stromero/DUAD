@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #faf8f5;
+    font-family: 'Inter', sans-serif;
+    color: #2b2b2a;
+    padding: 40px 20px;
+}
+
+.contenedor {
+    background-color: white;
+    width: 680px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+h1 {
+font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.subtitulo {
+    color: #5c5a57;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.autor {
+    text-align: center;
+    color: #6f6d6a;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.redes {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.redes i {
+    margin: 0 8px;
+    color: #6f6d6a;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.2s;;
+}
+
+img {
+    width: 100%;
+}
+
+.texto {
+    position: relative;
+}
+
+.texto p {
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: #33312e;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+
+.caja {
+    float: right;
+    width: 290px;              
+    background-color: #ffbd69;  
+    padding: 24px 20px;
+    margin-left: 24px;         
+    margin-bottom: 12px;        
+    text-align: center;
+}
+
+.caja h2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.clearfix {
+    clear: both;
+}
