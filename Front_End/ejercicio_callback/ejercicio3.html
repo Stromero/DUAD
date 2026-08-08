@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cambiar color del párrafo</title>
+</head>
+<body>
+  <h1>Ejercicio: Cambiar color</h1>
+
+
+  <p id="miParrafo">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </p>
+
+  
+  <button id="btnColor">Cambiar color</button>
+
+  
+  <script>
+    
+    const colores = ["red", "blue", "green", "yellow", "cyan", "pink"];
+
+    
+    const parrafo = document.getElementById("miParrafo");
+    const btnColor = document.getElementById("btnColor");
+
+    
+    btnColor.addEventListener("click", () => {
+      
+      const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+      
+      parrafo.style.backgroundColor = colorAleatorio;
+    });
+  </script>
+</body>
+</html>
