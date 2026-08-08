@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio DOM</title>
+</head>
+<body>
+  <h1>Lista de elementos</h1>
+
+  <!-- Lista ordenada -->
+  <ol id="miLista"></ol>
+
+  <!-- Botones -->
+  <button id="btnAgregar">Agregar elemento</button>
+  <button id="btnLimpiar">Limpiar lista</button>
+
+  <!-- Script con el código JS -->
+  <script>
+    // Referencias a los elementos del DOM
+    const lista = document.getElementById("miLista");
+    const btnAgregar = document.getElementById("btnAgregar");
+    const btnLimpiar = document.getElementById("btnLimpiar");
+
+    let contador = 1; // Para numerar los elementos agregados
+
+    // Evento para agregar elementos
+    btnAgregar.addEventListener("click", () => {
+      const nuevoElemento = document.createElement("li");
+      nuevoElemento.textContent = "Elemento " + contador;
+      lista.appendChild(nuevoElemento);
+      contador++;
+    });
+    btnLimpiar.addEventListener("click", () => {
+      lista.innerHTML = "";
+      contador = 1;
+    });
+  </script>
+</body>
+</html>
