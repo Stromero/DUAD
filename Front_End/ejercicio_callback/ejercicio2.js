@@ -1,16 +1,31 @@
 const fs = require("fs");
 
+fs.readFile("Archivo1.txt", "utf8", (err, data1) => {
+  if (err) {
+    console.error("Error leyendo archivo1:", err);
+    return;
+  }
 
-const file1 = fs.readFileSync("Archivo1.txt", "utf8").split("\n").map(w => w.trim());
-const file2 = fs.readFileSync("Archivo2.txt", "utf8").split("\n").map(w => w.trim());
+  
+  fs.readFile("Archivo2.txt", "utf8", (err, data2) => {
+    if (err) {
+      console.error("Error leyendo archivo2:", err);
+      return;
+    }
 
+    
+    const words1 = data1.split("\n").map(w => w.trim());
+    const words2 = data2.split("\n").map(w => w.trim());
 
-const repeated = file1.filter(word => file2.includes(word));
+   
+    const repeated = words1.filter(word => words2.includes(word));
 
+    
+    console.log("Palabras repetidas en ambos archivos:");
+    console.log(repeated);
 
-console.log("Palabras repetidas en ambos archivos:");
-console.log(repeated);
-
-
-console.log("\nMensaje escondido:");
-console.log(repeated.join(" "));
+    
+    console.log("\nMensaje escondido:");
+    console.log(repeated.join(" "));
+  });
+});
