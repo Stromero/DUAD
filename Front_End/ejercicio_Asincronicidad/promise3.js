@@ -24,3 +24,5 @@ Promise.all([promesaDogs, promesaAre, promesaVery, promesaCute])
     console.log(fraseFinal); 
   })
   .catch(error => console.error("Error:", error));
+
+  //comment

@@ -14,3 +14,5 @@ Promise.any(promesasPokemonAny)
     console.log("El primer Pokémon recibido fue:", primerPokemon.name);
   })
   .catch(error => console.error("Todas las promesas fallaron:", error));
+
+  //comment

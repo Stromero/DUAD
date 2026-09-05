@@ -18,3 +18,5 @@ Promise.all(promesasPokemon)
     console.log("Los 3 Pokémon cargados simultáneamente:", nombres);
   })
   .catch(error => console.error("Error en Promise.all:", error));
+
+  //Comment
