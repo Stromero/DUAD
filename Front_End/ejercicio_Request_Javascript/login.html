@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+  <h1>Login</h1>
+  <form id="formLogin">
+    <input type="text" id="userId" placeholder="ID de usuario" required>
+    <input type="password" id="password" placeholder="Contraseña" required>
+    <button type="submit">Ingresar</button>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const form = document.getElementById("formLogin");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const id = document.getElementById("userId").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const response = await axios.get(`https://api.restful-api.dev/objects/${id}`);
+        const user = response.data;
+
+        if (user.data.password === password) {
+          localStorage.setItem("userId", id);
+          window.location.href = "perfil.html";
+        } else {
+          alert("Contraseña incorrecta");
+        }
+      } catch (error) {
+        alert("Usuario no encontrado");
+      }
+    });
+  </script>
+</body>
+</html>
