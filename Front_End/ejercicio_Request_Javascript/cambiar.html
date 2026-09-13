@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cambiar Contraseña</title>
+</head>
+<body>
+  <h1>Cambiar Contraseña</h1>
+  <form id="formCambio">
+    <input type="password" id="oldPass" placeholder="Contraseña anterior" required>
+    <input type="password" id="newPass" placeholder="Nueva contraseña" required>
+    <input type="password" id="confirmPass" placeholder="Confirmar nueva contraseña" required>
+    <button type="submit">Cambiar</button>
+  </form>
+
+  <button id="volverPerfil">Volver a Perfil</button> <!-- Nuevo botón -->
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const userId = localStorage.getItem("userId");
+    if (!userId) window.location.href = "login.html";
+
+    const form = document.getElementById("formCambio");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const oldPass = document.getElementById("oldPass").value;
+      const newPass = document.getElementById("newPass").value;
+      const confirmPass = document.getElementById("confirmPass").value;
+
+      try {
+        const response = await axios.get(`https://api.restful-api.dev/objects/${userId}`);
+        const user = response.data;
+
+        if (user.data.password !== oldPass) {
+          alert("La contraseña anterior no es válida");
+          return;
+        }
+
+        if (newPass !== confirmPass) {
+          alert("La nueva contraseña no coincide con la confirmación");
+          return;
+        }
+
+        await axios.patch(`https://api.restful-api.dev/objects/${userId}`, {
+          data: { password: newPass }
+        });
+
+        alert("Contraseña actualizada correctamente!");
+      } catch (error) {
+        alert("Error al cambiar contraseña");
+      }
+    });
+
+    document.getElementById("volverPerfil").addEventListener("click", () => {
+      window.location.href = "perfil.html";
+    });
+  </script>
+</body>
+</html>
+
