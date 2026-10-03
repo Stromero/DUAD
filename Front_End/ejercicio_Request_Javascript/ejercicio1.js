@@ -1,5 +1,5 @@
 
-async function listarObjetos() {
+async function listObjects() {
   try {
     const response = await fetch("https://api.restful-api.dev/objects");
 
@@ -7,11 +7,11 @@ async function listarObjetos() {
       throw new Error("Error al obtener objetos");
     }
 
-    const objetos = await response.json();
-    const filtrados = objetos.filter(obj => obj.data);
+    const objects = await response.json();
+    const filters = objects.filter(obj => obj.data);
 
     console.log("Objetos con data:");
-    filtrados.forEach(obj => {
+    filters.forEach(obj => {
       console.log(`ID: ${obj.id}`);
       console.log(`Nombre: ${obj.name}`);
       console.log(`Data: ${JSON.stringify(obj.data)}`);
@@ -23,7 +23,7 @@ async function listarObjetos() {
 }
 
 
-async function crearObjeto(info) {
+async function createObject(info) {
   try {
     const response = await fetch("https://api.restful-api.dev/objects", {
       method: "POST",
@@ -35,17 +35,17 @@ async function crearObjeto(info) {
       throw new Error("Error al crear objeto");
     }
 
-    const nuevo = await response.json();
-    console.log("Objeto creado:", nuevo);
-    console.log("⚠️ ID generado:", nuevo.id);
-    return nuevo.id;
+    const newObject = await response.json();
+    console.log("Objeto creado:", newObject);
+    console.log("⚠️ ID generado:", newObject.id);
+    return newObject.id;
   } catch (error) {
     console.error("Error:", error.message);
   }
 }
 
 
-async function obtenerObjeto(id) {
+async function getObject(id) {
   try {
     const response = await fetch(`https://api.restful-api.dev/objects/${id}`);
 
@@ -53,15 +53,15 @@ async function obtenerObjeto(id) {
       throw new Error("Objeto no encontrado");
     }
 
-    const objeto = await response.json();
-    console.log("Objeto encontrado:", objeto);
+    const object = await response.json();
+    console.log("Objeto encontrado:", object);
   } catch (error) {
     console.error("Error:", error.message);
   }
 }
 
 
-async function actualizarObjeto(id, nuevosDatos) {
+async function updateObject(id, nuevosDatos) {
   try {
     const response = await fetch(`https://api.restful-api.dev/objects/${id}`, {
       method: "PUT",
@@ -73,8 +73,8 @@ async function actualizarObjeto(id, nuevosDatos) {
       throw new Error("Error al actualizar objeto");
     }
 
-    const actualizado = await response.json();
-    console.log("Objeto actualizado:", actualizado);
+    const updated = await response.json();
+    console.log("Objeto actualizado:", updated);
   } catch (error) {
     console.error("Error:", error.message);
   }
@@ -82,24 +82,30 @@ async function actualizarObjeto(id, nuevosDatos) {
 
 
 (async () => {
-  await listarObjetos();
+  await listObjects();
 
-  const nuevoId = await crearObjeto({
+  const newId = await crearObjeto({
     name: "Mi Laptop",
-    data: { marca: "Dell", modelo: "XPS 13" }
+    data: { 
+      marca: "Dell", 
+      modelo: "XPS 13",
+      procesador: "Intel Core i7",
+      memoriaRAM: "16GB",
+      almacenamiento: "512gb SDD" 
+    }
   });
 
-  if (nuevoId) {
-    await obtenerObjeto(nuevoId);
+  if (newId) {
+    await getObject(newId);
 
     
-    await actualizarObjeto(nuevoId, {
+    await updateObject(newId, {
       name: "Mi Laptop Actualizada",
       data: { marca: "Dell", modelo: "XPS 15", año: 2026 }
     });
 
     
-    await obtenerObjeto(nuevoId);
+    await getObject(newId);
   }
 })();
 

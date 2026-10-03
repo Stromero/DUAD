@@ -19,6 +19,7 @@
   <script>
     const userId = localStorage.getItem("userId");
     if (!userId) window.location.href = "login.html";
+    return;
 
     const form = document.getElementById("formCambio");
 
@@ -49,7 +50,11 @@
 
         alert("Contraseña actualizada correctamente!");
       } catch (error) {
-        alert("Error al cambiar contraseña");
+        if(error.response && error.response.status === 404){
+          alert("El usuario no existe");
+        }else{
+          alert("Error al cambiar contraseña");
+        }
       }
     });
 

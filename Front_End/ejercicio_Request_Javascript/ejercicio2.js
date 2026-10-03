@@ -1,15 +1,15 @@
 const axios = require("axios");
 
 
-async function listarObjetosAxios() {
+async function listObjectsAxios() {
   try {
     const response = await axios.get("https://api.restful-api.dev/objects");
-    const objetos = response.data;
+    const objects = response.data;
 
-    const filtrados = objetos.filter(obj => obj.data);
+    const filters = objects.filter(obj => obj.data);
 
     console.log("Objetos con data:");
-    filtrados.forEach(obj => {
+    filters.forEach(obj => {
       console.log(`ID: ${obj.id}`);
       console.log(`Nombre: ${obj.name}`);
       console.log(`Data: ${JSON.stringify(obj.data)}`);
@@ -21,7 +21,7 @@ async function listarObjetosAxios() {
 }
 
 
-async function crearObjetoAxios(info) {
+async function createObjectsAxios(info) {
   try {
     const response = await axios.post("https://api.restful-api.dev/objects", info);
     console.log("Objeto creado:", response.data);
@@ -33,7 +33,7 @@ async function crearObjetoAxios(info) {
 }
 
 
-async function obtenerObjetoAxios(id) {
+async function getObjectAxios(id) {
   try {
     const response = await axios.get(`https://api.restful-api.dev/objects/${id}`);
     console.log("Objeto encontrado:", response.data);
@@ -43,7 +43,7 @@ async function obtenerObjetoAxios(id) {
 }
 
 
-async function actualizarObjetoAxios(id, nuevosDatos) {
+async function updateObjectAxios(id, nuevosDatos) {
   try {
     const response = await axios.put(`https://api.restful-api.dev/objects/${id}`, nuevosDatos);
     console.log("Objeto actualizado:", response.data);
@@ -54,21 +54,27 @@ async function actualizarObjetoAxios(id, nuevosDatos) {
 
 
 (async () => {
-  await listarObjetosAxios();
+  await listObjectsAxios();
 
-  const nuevoId = await crearObjetoAxios({
+  const newId = await createObjectAxios({
     name: "Balón de Fútbol",
-    data: { marca: "Adidas", modelo: "Al Rihla" }
+    data: { 
+      marca: "Adidas", 
+      modelo: "Al Rihla",
+      color: "Blanco/Azul",
+      tamaño: "5",
+      material: "Poliuretano" 
+    }
   });
 
-  if (nuevoId) {
-    await obtenerObjetoAxios(nuevoId);
+  if (newId) {
+    await getObjectAxios(newId);
 
-    await actualizarObjetoAxios(nuevoId, {
+    await updateObjectAxios(newId, {
       name: "Balón de Fútbol Actualizado",
       data: { marca: "Adidas", modelo: "Al Rihla Pro", año: 2026 }
     });
 
-    await obtenerObjetoAxios(nuevoId);
+    await getObjectAxios(newId);
   }
 })();

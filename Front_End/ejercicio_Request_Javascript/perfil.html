@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Perfil</title>
+  <title>My profile</title>
   <style>
     .card {
       border: 1px solid #ccc;
@@ -16,10 +16,10 @@
   </style>
 </head>
 <body>
-  <h1>Mi Perfil</h1>
-  <div id="perfil"></div>
+  <h1>My profile</h1>
+  <div id="profile"></div>
   <button id="logout">Cerrar Sesión</button>
-  <button id="cambiarPass">Cambiar Contraseña</button> <!-- Nuevo botón -->
+  <button id="changePass">Cambiar Contraseña</button> <!-- Nuevo botón -->
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
@@ -27,18 +27,19 @@
 
     if (!userId) {
       window.location.href = "login.html";
+      return;
     }
 
-    async function cargarPerfil() {
+    async function loadProfile() {
       try {
         const response = await axios.get(`https://api.restful-api.dev/objects/${userId}`);
         const user = response.data;
 
-        document.getElementById("perfil").innerHTML = `
+        document.getElementById("profile").innerHTML = `
           <div class="card">
             <h3>${user.name}</h3>
             <p><strong>ID:</strong> ${user.id}</p>
-            <p><strong>Password:</strong> ${user.data.password}</p>
+            <p><em>Para gestionar tu contraseña usa el botón de abajo.</em></p>
           </div>
         `;
       } catch (error) {
@@ -46,14 +47,14 @@
       }
     }
 
-    cargarPerfil();
+    loadProfile();
 
     document.getElementById("logout").addEventListener("click", () => {
       localStorage.removeItem("userId");
       window.location.href = "login.html";
     });
 
-    document.getElementById("cambiarPass").addEventListener("click", () => {
+    document.getElementById("changePass").addEventListener("click", () => {
       window.location.href = "cambiar.html";
     });
   </script>
