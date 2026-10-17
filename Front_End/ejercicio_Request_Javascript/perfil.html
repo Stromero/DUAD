@@ -27,10 +27,8 @@
 
     if (!userId) {
       window.location.href = "login.html";
-      return;
-    }
-
-    async function loadProfile() {
+    } else{
+      async function loadProfile() {
       try {
         const response = await axios.get(`https://api.restful-api.dev/objects/${userId}`);
         const user = response.data;
@@ -45,6 +43,7 @@
       } catch (error) {
         alert("Error al cargar perfil");
       }
+    }
     }
 
     loadProfile();

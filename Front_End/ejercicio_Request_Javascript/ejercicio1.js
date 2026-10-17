@@ -85,13 +85,14 @@ async function updateObject(id, nuevosDatos) {
   await listObjects();
 
   const newId = await crearObjeto({
-    name: "Mi Laptop",
+
+    name: "Guantes de Boxeo",
     data: { 
-      marca: "Dell", 
-      modelo: "XPS 13",
-      procesador: "Intel Core i7",
-      memoriaRAM: "16GB",
-      almacenamiento: "512gb SDD" 
+      marca: "RDX", 
+      modelo: "Sparring F6 Kara",
+      color: "Negros",
+      tamaño: "L",
+      material: "Poliuretano" 
     }
   });
 

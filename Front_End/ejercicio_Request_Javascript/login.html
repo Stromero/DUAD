@@ -6,7 +6,7 @@
 </head>
 <body>
   <h1>Login</h1>
-  <form id="formLogin">
+  <form id="formSignin">
     <input type="text" id="userId" placeholder="ID de usuario" required>
     <input type="password" id="password" placeholder="Contraseña" required>
     <button type="submit">Ingresar</button>
@@ -14,7 +14,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    const form = document.getElementById("formLogin");
+    const form = document.getElementById("formSignin");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
