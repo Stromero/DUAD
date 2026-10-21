@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>My profile</title>
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      width: 250px;
+      margin: 20px auto;
+      text-align: center;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>My profile</h1>
+  <div id="profile"></div>
+  <button id="logout">Cerrar Sesión</button>
+  <button id="changePass">Cambiar Contraseña</button> <!-- Nuevo botón -->
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const userId = localStorage.getItem("userId");
+
+    if (!userId) {
+      window.location.href = "login.html";
+    } else{
+      async function loadProfile() {
+      try {
+        const response = await axios.get(`https://api.restful-api.dev/objects/${userId}`);
+        const user = response.data;
+
+        document.getElementById("profile").innerHTML = `
+          <div class="card">
+            <h3>${user.name}</h3>
+            <p><strong>ID:</strong> ${user.id}</p>
+            <p><em>Para gestionar tu contraseña usa el botón de abajo.</em></p>
+          </div>
+        `;
+      } catch (error) {
+        alert("Error al cargar perfil");
+      }
+    }
+    }
+
+    loadProfile();
+
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("userId");
+      window.location.href = "login.html";
+    });
+
+    document.getElementById("changePass").addEventListener("click", () => {
+      window.location.href = "cambiar.html";
+    });
+  </script>
+</body>
+</html>
+

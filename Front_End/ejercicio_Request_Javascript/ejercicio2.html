@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 2 con Axios</title>
+</head>
+<body>
+  <h1>Prueba de CRUD con Axios</h1>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    async function listObjectsAxios() {
+      try {
+        const response = await axios.get("https://api.restful-api.dev/objects");
+        const objects = response.data;
+
+        const filters = objects.filter(obj => obj.data);
+
+        console.log("Objetos con data:");
+        filters.forEach(obj => {
+          console.log(`ID: ${obj.id}`);
+          console.log(`Nombre: ${obj.name}`);
+          console.log(`Data: ${JSON.stringify(obj.data)}`);
+          console.log("-------------------------");
+        });
+      } catch (error) {
+        console.error("Error al obtener objetos:", error.message);
+        throw error;
+      }
+    }
+
+    async function createObjectAxios(info) {
+      try {
+        const response = await axios.post("https://api.restful-api.dev/objects", info);
+        console.log("Objeto creado:", response.data);
+        console.log("⚠️ ID generado:", response.data.id);
+        return response.data.id;
+      } catch (error) {
+        console.error("Error al crear objeto:", error.message);
+      }
+    }
+
+    async function getObjectAxios(id) {
+      try {
+        const response = await axios.get(`https://api.restful-api.dev/objects/${id}`);
+        console.log("Objeto encontrado:", response.data);
+      } catch (error) {
+        console.error("Error al obtener objeto:", error.message);
+      }
+    }
+
+    async function updateObjectAxios(id, newData) {
+      try {
+        const response = await axios.put(`https://api.restful-api.dev/objects/${id}`, newData);
+        console.log("Objeto actualizado:", response.data);
+      } catch (error) {
+        console.error("Error al actualizar objeto:", error.message);
+      }
+    }
+
+    (async () => {
+      await listObjectsAxios();
+
+      const newId = await createObjectAxios({
+        name: "Balón de Fútbol",
+        data: {
+          marca: "Adidas",
+          modelo: "Al Rihla",
+          color: "Blanco/Azul",
+          tamaño: "5",
+          material: "Poliuretano",
+          precio: 59.99
+        }
+      });
+
+      if (newId) {
+        await getObjectAxios(newId);
+
+        await updateObjectAxios(newId, {
+          name: "Balón de Fútbol Actualizado",
+          data: {
+            marca: "Adidas",
+            modelo: "Al Rihla Pro",
+            año: 2026,
+            color: "Negro/Dorado",
+            precio: 79.99
+          }
+        });
+
+        await getObjectAxios(newId);
+      }
+    })();
+  </script>
+</body>
+</html>
