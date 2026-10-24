@@ -1,4 +1,4 @@
-const axios = require("axios");
+//const axios = require("axios");
 
 
 async function listObjectsAxios() {
@@ -21,7 +21,7 @@ async function listObjectsAxios() {
 }
 
 
-async function createObjectsAxios(info) {
+async function createObjectAxios(info) {
   try {
     const response = await axios.post("https://api.restful-api.dev/objects", info);
     console.log("Objeto creado:", response.data);
@@ -29,6 +29,7 @@ async function createObjectsAxios(info) {
     return response.data.id;
   } catch (error) {
     console.error("Error al crear objeto:", error.message);
+    throw error;
   }
 }
 
@@ -53,7 +54,7 @@ async function updateObjectAxios(id, nuevosDatos) {
 }
 
 
-(async () => {
+/*(async () => {
   await listObjectsAxios();
 
   const newId = await createObjectAxios({
@@ -77,4 +78,4 @@ async function updateObjectAxios(id, nuevosDatos) {
 
     await getObjectAxios(newId);
   }
-})();
+})();*/

@@ -84,7 +84,7 @@ async function updateObject(id, nuevosDatos) {
 (async () => {
   await listObjects();
 
-  const newId = await crearObjeto({
+  const newId = await createObject({
 
     name: "Guantes de Boxeo",
     data: { 

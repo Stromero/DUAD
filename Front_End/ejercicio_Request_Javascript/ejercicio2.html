@@ -26,6 +26,7 @@
       } catch (error) {
         console.error("Error al obtener objetos:", error.message);
         throw error;
+        
       }
     }
 
@@ -37,6 +38,7 @@
         return response.data.id;
       } catch (error) {
         console.error("Error al crear objeto:", error.message);
+        throw error;
       }
     }
 
@@ -46,6 +48,7 @@
         console.log("Objeto encontrado:", response.data);
       } catch (error) {
         console.error("Error al obtener objeto:", error.message);
+        throw error;
       }
     }
 
@@ -55,6 +58,7 @@
         console.log("Objeto actualizado:", response.data);
       } catch (error) {
         console.error("Error al actualizar objeto:", error.message);
+        throw error;
       }
     }
 
